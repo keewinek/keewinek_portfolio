@@ -82,7 +82,7 @@ export default function ProjectPage(props: PageProps) {
                             </RevealOnScroll>
 
                             {project?.downloads && project?.downloads.length > 0 && (
-                                <div class="flex flex-wrap gap-2 mb-4">
+                                <div class="mb-4">
                                     {project?.downloads.map((download: any) => (
                                         <>
                                             <RevealOnScroll>

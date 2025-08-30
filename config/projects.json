@@ -1,0 +1,182 @@
+[
+    {
+        "title": "Blipia",
+        "desc": "Blipia is an steam-like platform for web games for free. It was a very ambitious project, you were able to create your account, add friends and join to their games. Anyone could add/suggest their own web-based game, that could be played at Blipia. I have turned off the servers, because Blipia wan't earning any money, and servers weren't free.",
+        "images": ["/src/thumbnails/blipia/main_page.png"],
+        "site_url": "https://blipia.netlify.app",
+        "date": "2023-12-20T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["py", "html", "css", "js"]
+    },
+    {
+        "title": "MyGens",
+        "desc": "MyGens provides many generators and tools that you can use for free. It is an innovative platform meticulously crafted by keewinek, providing a diverse array of free generators and tools to cater to all your creative needs. Whether you're a seasoned developer, a creative content creator, or simply an individual seeking some fun and convenience, MyGens offers a world of possibilities that will spark your imagination and boost your productivity. It has it own 'coding language', that docs can be found at MyGens about page. Click create to test this language out. I have stopped working on MyGens, because there was really little earnings.",
+        "images": ["/src/thumbnails/mygens/main_page.png", "/src/thumbnails/mygens/generator_page.png"],
+        "site_url": "https://mygens.netlify.app",
+        "date": "2023-07-11T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["py", "html", "css", "js"]
+    },
+    {
+        "title": "KnowItz",
+        "desc": "At KnowItz, we envision a world where learning is not a chore but an exciting journey. Knowitz was my best project so far, that was creating tests from all topics that you can imagine. You could print your test, download it as a pdf and even do the same test as an online quiz. Knowitz was really game changing project, but i have turned the servers off, because it wasn't making any money.",
+        "images": ["/src/thumbnails/knowitz/quiz_page.png", "/src/thumbnails/knowitz/quiz_create_page.png"],
+        "site_url": "https://knowitz.netlify.app",
+        "date": "2023-12-28T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["py", "html", "css", "js"]
+    },
+    {
+        "title": "BTLibrus",
+        "desc": "BTLibrus is a Chrome extension that makes Librus better. Maybe you want your Librus (polish online school diary for grades ext.) to have a dark theme, smooth animations or the ability to add your own grades and see how your grade point average changes in a given subject.",
+        "images": ["/src/thumbnails/btlibrus/promo_thumbnail.jpg", "/src/thumbnails/btlibrus/main_page.png"],
+        "site_url": "https://chrome.google.com/webstore/detail/btlibrus/ikhndcpmkpacbemjpbmphcmohichlmgb",
+        "date": "2023-02-14T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["js", "css"]
+    },
+    {
+        "title": "Mc Woof",
+        "desc": "Mc Woof was an simple Minecraft Server List. You could add server really easy. I have stopped working on this project, because it was my first back-end project, and i have had no experience with it. Also the free repl.it isn't free anymore.",
+        "images": ["/src/thumbnails/mcwoof/servers_page.png"],
+        "site_url": "https://mcwoof.netlify.app",
+        "date": "2022-10-16T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["py", "html", "css", "js"]
+    },
+    {
+        "title": "Sparta Team",
+        "desc": "Sparta team.eu is an polish minecraft server. I have made website for them. This server isn't working anymore (i think).",
+        "images": ["/src/thumbnails/sparta_team/main_page.png"],
+        "site_url": "https://spartateam.netlify.app",
+        "date": "2022-08-17T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["html", "css", "js"]
+    },
+    {
+        "title": "Tiltz",
+        "desc": "Main goal of Tiltz is to make a place that will help people to find games that they want to play wihout downloading or creating an account. Here, you can easly find some free browser games. Hope you enjoy it! All the games are free to play. Just an website to find some browser games.",
+        "images": ["/src/thumbnails/tiltz/main_page.png"],
+        "site_url": "https://tiltz.netlify.app",
+        "date": "2022-06-20T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["html", "css", "js"]
+    },
+    {
+        "title": "Discool",
+        "desc": "You can find here some tools and essentials for discord that can help you making your own server better. It is my first website ever with some js logic. Ex. you can send a discord webhook message from here.",
+        "images": ["/src/thumbnails/discool/promo_thumbnail.png", "/src/thumbnails/discool/send_message.png"],
+        "site_url": "https://discool.netlify.app",
+        "date": "2022-03-20T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["js", "html", "css"]
+    },
+    {
+        "title": "The Final Box",
+        "desc": "The Final box is a simple puzzle game. Solve some logic puzzles to reach to the end of the level. Open doors, active jump pads, and much more by activating the button (You can stand on it or place cube). There are 11 level in the game. Each mechanic of the game will be introduced slowly.  It is really fun, i guess.",
+        "images": ["/src/thumbnails/the_final_box/promo_thumbnail.png", "/src/thumbnails/the_final_box/the_final_box_glass.gif", "/src/thumbnails/the_final_box/the_final_box_cube_placing.gif", "/src/thumbnails/the_final_box/the_final_box_platform.gif"],
+        "site_url": "https://keewinek.itch.io/final-box",
+        "date": "2021-12-27T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["c_sharp", "unity"],
+        "downloads": [
+            {"name": "The Final Box for Windows", "url": "downloads/the_final_box_win.zip"}
+        ]
+    },
+    {
+        "title": "The Long Line",
+        "desc": "Avoid pink blocks with your line, by clicking on the left / right side. Try to beat your record. It has been deleted from play store, buy you can download apk. It is quite fun.",
+        "images": ["/src/thumbnails/the_long_line/promo_thumbnail.webp"],
+        "site_url": "https://play.google.com/store/apps/details?id=com.KeewinekGames.TheLongLineGame",
+        "date": "2021-11-30T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["c_sharp", "unity"],
+        "downloads": [
+            {"name": "The Long Line .apk", "url": "downloads/the_long_line.apk"}
+        ]
+    },
+    {
+        "title": "Tree Lands",
+        "desc": "Tree Lands is a survival-roguelike game, where every animals are trying to expel you from the land.",
+        "images": ["/src/thumbnails/tree_lands/promo_thumbnail.png", "/src/thumbnails/tree_lands/tree_lands_ss_1.png"],
+        "site_url": "https://keewinek.itch.io/tree-lands",
+        "date": "2021-07-02T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["c_sharp", "unity"],
+        "downloads": [
+            {"name": "Tree Lands installer for Windows", "url": "downloads/tree_lands_setup.exe"}
+        ]
+    },
+    {
+        "title": "Macro Rua",
+        "desc": "Macro Rua is my first c++ window application. Its a simple auto clicker for games.",
+        "images": ["/src/thumbnails/macrorua/macro_rua_exe.png"],
+        "site_url": "https://keewinek.itch.io/macrorua",
+        "date": "2020-12-21T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["c plus plus"],
+        "downloads": [
+            {"name": "MacroRua.exe for Windows", "url": "/downloads/macroRua.exe"}
+        ]
+    },
+    {
+        "title": "KeMacro",
+        "desc": "KeMacro is an unfinished windows app, made to make our life easier. It currently has only an good auto clicker, but i will continue working on that project.",
+        "images": ["/src/thumbnails/kemacro/kemacro_hello.png", "/src/thumbnails/kemacro/kemacro_auto_clicker.png"],
+        "site_url": "",
+        "date": "2024-08-26T00:00:00.000Z",
+        "state": "working_on",
+        "languages_used": ["c plus plus"],
+        "downloads": [
+            {"name": "KeMacro.exe for Windows", "url": "/downloads/KeMacro.exe"}
+        ]
+    },
+    {
+        "title": "BlobGen",
+        "desc": "BlobGen is a generating platform that offers a wide array of generators, each tailored to provide unique and innovative outputs. Our mission is to empower creativity and efficiency by providing tools that inspire and assist in various tasks, from generating random data to crafting intricate designs. Its just a website with bunch of generators, that you can use.",
+        "images": ["/src/thumbnails/blobgen/steam_generator.png", "/src/thumbnails/blobgen/steam_generator_1.png", "/src/thumbnails/blobgen/steam_generator_2.png"],
+        "site_url": "https://blobgen.netlify.app",
+        "date": "2024-05-01T00:00:00.000Z",
+        "state": "suspended",
+        "languages_used": ["js", "html", "css"]
+    },
+    {
+        "title": "High Jumps Sim",
+        "desc": "High Jumps Simulator is an really cool Roblox game about jumping. Every jump you jump higher.",
+        "images": ["/src/thumbnails/high_jumps_simulator/high_jumps_1.png", "/src/thumbnails/high_jumps_simulator/high_jumps_2.png", "/src/thumbnails/high_jumps_simulator/high_jumps_3.png"],
+        "site_url": "https://www.roblox.com/games/11347624343/High-Jumps-Simulator-Obby",
+        "date": "2022-12-15T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["lua", "roblox"]
+    },
+    {
+        "title": "BetterIDU",
+        "desc": "idu.edu.pl is an online grade book, that is used in many schools. The website is really hard to use on mobile, so i have made an app, that runs the website and recreates the UI from scratch, that using the service is more comfortable, and good looking on mobile. App was made mainly for android, but you can also use it on ios (it works better on android).",
+        "images": ["/src/thumbnails/btidu/app_website_home_screen.png", "/src/thumbnails/btidu/home_screen.png", "/src/thumbnails/btidu/lesson_plan_screen.png", "/src/thumbnails/btidu/login_screen.png", "/src/thumbnails/btidu/messages_screen.png"],
+        "site_url": "https://betteridu.netlify.app",
+        "date": "2024-11-12T00:00:00.000Z",
+        "state": "working_on",
+        "languages_used": ["js", "html", "css"],
+        "proud" : 2
+    },
+    {
+        "title": "McBump",
+        "desc": "McBump is more that just a Minecraft server list. You can find awesome servers there, but there is more. McBump is a great platform for promoting your minecraft server. With innovative server dashboard, promoting your server is easy. Just give it a try!",
+        "images": ["/src/thumbnails/mcbump/mcbump_page_thumbnail.png", "/src/thumbnails/mcbump/mcbump_page_screenshot (2).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (3).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (4).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (5).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (6).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (7).png"],
+        "site_url": "https://www.mcbump.site",
+        "date": "2025-01-04T00:00:00.000Z",
+        "state": "working_on",
+        "languages_used": ["ts", "deno", "js", "html", "css", "minecraft"],
+        "proud" : 5
+    },
+    {
+        "title": "Spirr",
+        "desc": "Spirr is an site and app with AI chatbot trained with help of an professional therapist. It also comes along with a bunch of thereapy exercises and articles.",
+        "images": ["/src/thumbnails/spirr/spirr_logo_black_thumbnail.png", "/src/thumbnails/spirr/spirr1.png", "/src/thumbnails/spirr/spirr2.png", "/src/thumbnails/spirr/spirr3.png"],
+        "site_url": "https://spirr.pl",
+        "date": "2025-02-12T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["ts", "deno", "js", "html", "css"],
+        "proud" : 10
+    }
+]

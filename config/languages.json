@@ -1,0 +1,86 @@
+[
+    {
+        "id": "py",
+        "name": "Python",
+        "icon": "/src/languages/py.svg",
+        "url": "https://www.python.org",
+        "type": "back-end"
+    },
+    {
+        "id": "js",
+        "name": "JavaScript",
+        "icon": "/src/languages/js.svg",
+        "url": "https://ecma-international.org/publications-and-standards/standards/ecma-262/",
+        "type": "front-end"
+    },
+    {
+        "id": "lua",
+        "name": "Lua",
+        "icon": "/src/languages/lua.svg",
+        "url": "https://www.lua.org",
+        "type": "games"
+    },
+    {
+        "id": "c plus plus",
+        "name": "C++",
+        "icon": "/src/languages/c++.svg",
+        "url": "https://isocpp.org",
+        "type": "back-end"
+    },
+    {
+        "id": "html",
+        "name": "HTML",
+        "icon": "/src/languages/html.svg",
+        "url": "https://en.wikipedia.org/wiki/HTML",
+        "type": "front-end"
+    },
+    {
+        "id": "c_sharp",
+        "name": "C#",
+        "icon": "/src/languages/c_sharp.svg",
+        "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/",
+        "type": "games"
+    },
+    {
+        "id": "unity",
+        "name": "Unity Game Engine",
+        "icon": "/src/languages/unity.svg",
+        "url": "https://unity.com",
+        "type": "games"
+    },
+    {
+        "id": "roblox",
+        "name": "Roblox Studio",
+        "icon": "/src/languages/roblox.svg",
+        "url": "https://create.roblox.com/landing",
+        "type": "games"
+    },
+    {
+        "id": "css",
+        "name": "CSS",
+        "icon": "/src/languages/css.svg",
+        "url": "https://en.wikipedia.org/wiki/CSS",
+        "type": "front-end"
+    },
+    {
+        "id": "minecraft",
+        "name": "Minecraft",
+        "icon": "/src/languages/minecraft.svg",
+        "url": "https://www.minecraft.net",
+        "type": "games-assets"
+    },
+    {
+        "id": "ts",
+        "name": "TypeScript",
+        "icon": "/src/languages/ts.svg",
+        "url": "https://www.typescriptlang.org",
+        "type": "back-end"
+    },
+    {
+        "id": "deno",
+        "name": "Deno",
+        "icon": "/src/languages/deno.svg",
+        "url": "https://deno.com",
+        "type": "back-end"
+    }
+]

@@ -9,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/styles.css" />
 
-        <link rel="icon" href="logo.png"></link>
+        <link rel="icon" href="/logo.png"></link>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet" />
       </head>

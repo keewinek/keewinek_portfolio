@@ -27,7 +27,7 @@ export default function NavBar() {
 			scrollToSection(sectionId);
 		} else {
 			// On a different page, navigate to index with hash
-			window.location.href = `./#${sectionId}`;
+			window.location.href = `/#${sectionId}`;
 		}
 	};
 
@@ -38,23 +38,23 @@ export default function NavBar() {
 				id="main_nav" 
 				class="fixed top-0 left-1/2 -translate-x-1/2 z-50 overflow-hidden w-full max-w-fit max-h-[2.5rem] flex-row items-center justify-center mt-2 py-2 px-8 backdrop-blur-lg rounded-full hidden lg:flex"
 			>
-				<a href="./" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200">
-					<img id="nav_home_icon" src="./logo.png" class="h-[30px] object-contain"/>
+				<a href="/" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200">
+					<img id="nav_home_icon" src="/logo.png" class="h-[30px] object-contain"/>
 				</a>
 
 				<button onClick={() => handleNavClick('about_me')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">About Me</button>
 				<button onClick={() => handleNavClick('skills')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">Skills</button>
-				<a href="./projects" class="duration-200 hover:text-red mx-2 text-lg">Projects</a>
+				<a href="/projects" class="duration-200 hover:text-red mx-2 text-lg">Projects</a>
 				<button onClick={() => handleNavClick('contact')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">Contact</button>
-				<a href="discord" target="_blank" id="nav_contact" class="duration-200 hover:text-red mx-2 text-lg max-xl:hidden">Discord Server</a>
+				<a href="/discord" target="_blank" id="nav_contact" class="duration-200 hover:text-red mx-2 text-lg max-xl:hidden">Discord Server</a>
 			</nav>
 
 			{/* Mobile Navigation */}
 			<nav class="fixed top-0 left-0 right-0 z-50 lg:hidden backdrop-blur-lg">
 				<div class="flex items-center justify-center px-4 py-3">
 					{/* Logo and Title - Centered */}
-					<a href="./" class="flex items-center space-x-2 no-underline text-white">
-						<img src="./logo.png" class="h-8 w-8 object-contain" alt="Keewinek Logo"/>
+					<a href="/" class="flex items-center space-x-2 no-underline text-white">
+						<img src="/logo.png" class="h-8 w-8 object-contain" alt="Keewinek Logo"/>
 						<span class="text-xl font-semibold">Keewinek</span>
 					</a>
 
@@ -88,7 +88,7 @@ export default function NavBar() {
 							Skills
 						</button>
 						<a 
-							href="./projects" 
+							href="/projects" 
 							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg"
 							onClick={() => setIsMenuOpen(false)}
 						>
@@ -101,7 +101,7 @@ export default function NavBar() {
 							Contact
 						</button>
 						<a 
-							href="discord" 
+							href="/discord" 
 							target="_blank" 
 							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg"
 							onClick={() => setIsMenuOpen(false)}

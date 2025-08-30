@@ -3,7 +3,7 @@ import Carousel from "../islands/Carousel.tsx";
 
 export default function ProjectBig({ project }: { project: any }) {
 	return (
-		<div class="w-full my-8">
+		<div class="w-full mb-8 mt-12">
 			<h2 class="md:text-4xl text-2xl text-center mb-4">{project.title}</h2>
 
 			{/* Project Images Carousel */}
@@ -21,7 +21,7 @@ export default function ProjectBig({ project }: { project: any }) {
 			)}
 
 			<p class="text-gray-200 text-justify">{project.desc}</p>
-            <p class="text-gray-400 text-justify text-sm mt-2 mb-1">Used languages: </p>
+            <p class="text-gray-400 text-justify text-sm mt-4 mb-2">Used languages: </p>
 			<div class="flex flex-wrap">
 				{project.languages_used.map((language: any) => (
                     <img 

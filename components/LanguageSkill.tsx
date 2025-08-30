@@ -19,10 +19,13 @@ export default function LanguageSkill({ language }: { language: any }) {
                 >
                     {language.name}
                 </a>
-                <a class="block text-sm text-white/75 total_projects">
-                    Used in <span class="text-red font-bold value">{projectsData.filter((project: any) => project.languages_used.includes(language.id)).length ?? "?"}</span> 
-                    {projectsData.filter((project: any) => project.languages_used.includes(language.id)).length === 1 ? " project" : " projects"}.
-                </a>
+                <p class="text-sm text-white/75 total_projects flex flex-row items-center">
+                    <span class="inline">Used in </span>
+                    <a href={`/projects?q=` + language.name} class="font-bold value hover:text-red duration-200 inline ml-1">
+                        <span class="text-red font-bold value">{projectsData.filter((project: any) => project.languages_used.includes(language.id)).length ?? "?"}</span> 
+                        {projectsData.filter((project: any) => project.languages_used.includes(language.id)).length === 1 ? " project" : " projects"}.
+                    </a>
+                </p>
             </div>
         </div>
     );

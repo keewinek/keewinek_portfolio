@@ -61,6 +61,16 @@ export default function Home() {
 						<ProjectBig project={project} />
 					))}
 				</div>
+				<div class="text-center my-8">
+					<a 
+						class="mt-4 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+						href="./projects"
+						target="_blank"
+					>
+						<span class="mx-auto w-full px-6">See all projects</span>
+						<i class="fa-solid fa-arrow-right ml-auto"></i>
+					</a>
+				</div>
 			</div>
 
 			<div class="mb-12 max-w-md w-full mx-auto" id="skills">

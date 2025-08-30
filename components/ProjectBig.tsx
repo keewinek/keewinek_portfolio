@@ -3,8 +3,8 @@ import Carousel from "../islands/Carousel.tsx";
 
 export default function ProjectBig({ project }: { project: any }) {
 	return (
-		<div class="w-full mb-12 mt-24">
-			<h2 class="md:text-4xl text-2xl text-center mb-4">{project.title}</h2>
+		<div class="w-full mb-24 mt-12">
+			<h2 class="md:text-4xl text-2xl text-center mb-6">{project.title}</h2>
 
 			{/* Project Images Carousel */}
 			{project.images && project.images.length > 0 && (

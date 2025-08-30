@@ -62,7 +62,7 @@ export default function Home() {
 
 				<div class="max-w-md w-full mx-auto" id="projects">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-8">Proud of theese</h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24">Proud of theese</h1>
 					</RevealOnScroll>
 					<div class="">
 						{proud_projects.map((project: any) => (
@@ -87,7 +87,7 @@ export default function Home() {
 					</RevealOnScroll>
 				</div>
 
-				<div class="mb-12 max-w-md w-full mx-auto" id="skills">
+				<div class="mb-12 mt-24 max-w-md w-full mx-auto" id="skills">
 					<RevealOnScroll>
 						<h1 class="text-center text-2xl md:text-4xl mb-8">Coding Skills</h1>
 					</RevealOnScroll>
@@ -137,16 +137,14 @@ export default function Home() {
 
 				<div class="mb-12 max-w-md w-full mx-auto" id="contact">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-8" id="contact_header">Contact<span class="text-code-gray">*</span></h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" id="contact_header">Contact<span class="text-code-gray">*</span></h1>
 					</RevealOnScroll>
 					<RevealOnScroll>
 						<Contact />
 					</RevealOnScroll>
-					<RevealOnScroll>
-						<p class="text-left mt-6">
-							* For more formal contact, email me: <a href="mailto:keewinek@gmail.com" class="text-red hover:underline">keewinek@gmail.com</a>.
-						</p>
-					</RevealOnScroll>
+					<p class="text-left mt-6">
+						* For more formal contact, email me: <a href="mailto:keewinek@gmail.com" class="text-red hover:underline">keewinek@gmail.com</a>.
+					</p>
 				</div>
 			</div>
 		</div>

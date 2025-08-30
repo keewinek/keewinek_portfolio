@@ -17,7 +17,7 @@ export default function Home() {
 			<canvas id="main_page_background" class="w-full h-[calc(100vh-70px)] absolute top-10 bg-background-dark"></canvas>
 			<script src="./js/main_page_effect.js"></script>
 			
-			<div class="w-fit mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4">
+			<div class="w-fit mx-auto max-w-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 max-md:w-full">
 				<h1 class="text-4xl md:text-6xl font-bold m-0 w-fit p-0">Nice to <span class="text-red">meet</span> you.</h1>
 				<h2 class="text-xl md:text-3xl m-0 mt-3">- I am <span class="text-red">keewinek</span>.</h2>
 				<a 

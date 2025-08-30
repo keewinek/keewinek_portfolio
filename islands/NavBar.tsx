@@ -54,14 +54,14 @@ export default function NavBar() {
 				<div class="flex items-center justify-center px-4 py-3">
 					{/* Logo and Title - Centered */}
 					<a href="/" class="flex items-center space-x-2 no-underline text-white">
-						<img src="/logo.png" class="h-8 w-8 object-contain" alt="Keewinek Logo"/>
-						<span class="text-xl font-semibold">Keewinek</span>
+						<img src="/logo.png" class="h-8 w-8 object-contain animation-fade-in-up" alt="Keewinek Logo"/>
+						<span class="text-xl font-semibold animation-fade-in-up">Keewinek</span>
 					</a>
 
 					{/* Hamburger Menu Button - Positioned absolutely on the right */}
 					<button
 						onClick={toggleMenu}
-						class="absolute right-4 text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200"
+						class="absolute right-4 text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 animation-fade-in-up"
 						aria-label="Toggle menu"
 					>
 						<div class="w-6 h-6 flex flex-col justify-center items-center">
@@ -77,33 +77,33 @@ export default function NavBar() {
 					<div class="px-4 pb-4 space-y-3">
 						<button 
 							onClick={() => handleNavClick('about_me')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer"
+							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
 						>
 							About Me
 						</button>
 						<button 
 							onClick={() => handleNavClick('skills')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer"
+							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
 						>
 							Skills
 						</button>
 						<a 
 							href="/projects" 
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg"
+							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg animation-fade-in-up"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Projects
 						</a>
 						<button 
 							onClick={() => handleNavClick('contact')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer"
+							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
 						>
 							Contact
 						</button>
 						<a 
 							href="/discord" 
 							target="_blank" 
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg"
+							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg animation-fade-in-up"
 							onClick={() => setIsMenuOpen(false)}
 						>
 							Discord Server

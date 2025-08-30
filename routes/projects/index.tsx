@@ -12,10 +12,10 @@ export default function Projects(props: PageProps) {
 			<head>
 				<title>Projects made by keewinek</title>
 			</head>
-			<div class="bg-background-black text-white font-Comfortaa overflow-x-hidden px-2 pb-[1rem]">
+			<div class="bg-background-black text-white font-Comfortaa overflow-x-hidden px-2 pb-[5rem]">
 				<NavBar />
 
-				<h1 class="text-center text-3xl md:text-6xl mb-[4rem] mt-[5rem]">Projects</h1>
+				<h1 class="text-center text-3xl md:text-6xl mb-[4rem] mt-[5rem] animation-fade-in-up">Projects</h1>
 				
 				<ProjectsGrid initialSearchQuery={searchQuery} />
 			</div>

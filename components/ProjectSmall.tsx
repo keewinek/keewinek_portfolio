@@ -39,7 +39,7 @@ export default function ProjectSmall({ project }: { project: any }) {
     const project_url = "./projects/" + project.title.toLowerCase().replace(/ /g, "-");
 
     return (
-        <div class="bg-background-dark border border-white/10 rounded-lg p-4 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group">
+        <div class="bg-background-dark border border-white/10 rounded-lg p-4 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group animation-fade-in">
             {/* Project Image/Icon */}
             <div class="w-full h-[10rem] mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                 {project.images && project.images.length > 0 ? (

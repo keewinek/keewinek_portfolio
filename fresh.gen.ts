@@ -15,6 +15,7 @@ import * as $Contact from "./islands/Contact.tsx";
 import * as $NavBar from "./islands/NavBar.tsx";
 import * as $ProjectsGrid from "./islands/ProjectsGrid.tsx";
 import * as $Redirect from "./islands/Redirect.tsx";
+import * as $RevealOnScroll from "./islands/RevealOnScroll.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -34,6 +35,7 @@ const manifest = {
     "./islands/NavBar.tsx": $NavBar,
     "./islands/ProjectsGrid.tsx": $ProjectsGrid,
     "./islands/Redirect.tsx": $Redirect,
+    "./islands/RevealOnScroll.tsx": $RevealOnScroll,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

@@ -3,7 +3,7 @@ import Carousel from "../islands/Carousel.tsx";
 
 export default function ProjectBig({ project }: { project: any }) {
 	return (
-		<div class="w-full mb-8 mt-12">
+		<div class="w-full mb-12 mt-24">
 			<h2 class="md:text-4xl text-2xl text-center mb-4">{project.title}</h2>
 
 			{/* Project Images Carousel */}
@@ -34,7 +34,7 @@ export default function ProjectBig({ project }: { project: any }) {
 			</div>
 
             <a 
-                class="mt-4 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                class="mt-6 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
                 id="contact_send_button"
                 href={project.site_url}
                 target="_blank"

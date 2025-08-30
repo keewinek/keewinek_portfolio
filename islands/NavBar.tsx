@@ -38,15 +38,15 @@ export default function NavBar() {
 				id="main_nav" 
 				class="fixed top-0 left-1/2 -translate-x-1/2 z-50 overflow-hidden w-full max-w-fit max-h-[2.5rem] flex-row items-center justify-center mt-2 py-2 px-8 backdrop-blur-lg rounded-full hidden lg:flex"
 			>
-				<a href="/" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200">
+				<a href="/" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200 animation-fade-in-up">
 					<img id="nav_home_icon" src="/logo.png" class="h-[30px] object-contain"/>
 				</a>
 
-				<button onClick={() => handleNavClick('about_me')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">About Me</button>
-				<button onClick={() => handleNavClick('skills')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">Skills</button>
-				<a href="/projects" class="duration-200 hover:text-red mx-2 text-lg">Projects</a>
-				<button onClick={() => handleNavClick('contact')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer">Contact</button>
-				<a href="/discord" target="_blank" id="nav_contact" class="duration-200 hover:text-red mx-2 text-lg max-xl:hidden">Discord Server</a>
+				<button onClick={() => handleNavClick('about_me')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">About Me</button>
+				<button onClick={() => handleNavClick('skills')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">Skills</button>
+				<a href="/projects" class="duration-200 hover:text-red mx-2 text-lg animation-fade-in-up">Projects</a>
+				<button onClick={() => handleNavClick('contact')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">Contact</button>
+				<a href="/discord" target="_blank" id="nav_contact" class="duration-200 hover:text-red mx-2 text-lg max-xl:hidden animation-fade-in-up">Discord Server</a>
 			</nav>
 
 			{/* Mobile Navigation */}

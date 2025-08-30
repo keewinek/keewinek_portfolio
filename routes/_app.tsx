@@ -12,8 +12,11 @@ export default function App({ Component }: PageProps) {
         <link rel="icon" href="/logo.png"></link>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet" />
+
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
       </head>
-      <body class="overflow-x-hidden bg-background-black">
+      <body class="overflow-x-hidden max-w-[100vw] bg-background-black">
         <Component />
       </body>
     </html>

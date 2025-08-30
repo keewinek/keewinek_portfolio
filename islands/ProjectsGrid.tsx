@@ -93,6 +93,8 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 		sort_projects();
 	}, []);
 
+	sort_projects();
+
 	return (
 		<div class="max-w-[1400px] mx-auto px-2.5">
 			{/* Filters and Search Section */}
@@ -100,7 +102,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 				<div class="flex flex-wrap gap-2">
 					<button 
 						onClick={() => handleFilterClick("all")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border ${
+						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
 							activeFilter.value === "all" 
 								? "bg-red text-background-black border-red" 
 								: "text-red hover:bg-red border-red hover:text-background-black"
@@ -110,7 +112,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 					</button>
 					<button 
 						onClick={() => handleFilterClick("finished")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border ${
+						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
 							activeFilter.value === "finished" 
 								? "bg-red text-background-black border-red" 
 								: "text-red hover:bg-red border-red hover:text-background-black"
@@ -120,7 +122,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 					</button>
 					<button 
 						onClick={() => handleFilterClick("working_on")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border ${
+						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
 							activeFilter.value === "working_on" 
 								? "bg-red text-background-black border-red" 
 								: "text-red hover:bg-red border-red hover:text-background-black"
@@ -132,7 +134,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 
 				<div class="md:ml-4">
 					{/* Search Input */}
-					<div class="relative">
+					<div class="relative animation-fade-in-up">
 						<i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-[40%] w-5 h-5 text-white/50"></i>
 						<input 
 							value={searchTerm.value}
@@ -146,7 +148,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 			</div>
 
 			{/* Results Count */}
-			<div class="mb-6 text-gray-400 text-sm">
+			<div class="mb-6 text-gray-400 text-sm animation-fade-in">
 				Showing {filteredProjects.value.length} of {projectsData.length} projects
 			</div>
 
@@ -159,7 +161,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 
 			{/* No Results Message */}
 			{filteredProjects.value.length === 0 && (
-				<div class="text-center py-16">
+				<div class="text-center py-16 animation-fade-in">
 					<div class="text-6xl mb-4">🔍</div>
 					<h3 class="text-xl text-gray-300 mb-2">No projects found</h3>
 					<p class="text-gray-500">Try adjusting your search terms or filters</p>

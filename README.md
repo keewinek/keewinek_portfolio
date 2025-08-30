@@ -1,2 +1,2 @@
-# keewinek_portfolio
-My portfolio :)
+# My personal portfolio
+all my projects in one place :)

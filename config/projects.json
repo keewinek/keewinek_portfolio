@@ -155,7 +155,7 @@
         "images": ["/src/thumbnails/btidu/app_website_home_screen.png", "/src/thumbnails/btidu/home_screen.png", "/src/thumbnails/btidu/lesson_plan_screen.png", "/src/thumbnails/btidu/login_screen.png", "/src/thumbnails/btidu/messages_screen.png"],
         "site_url": "https://betteridu.netlify.app",
         "date": "2024-11-12T00:00:00.000Z",
-        "state": "working_on",
+        "state": "finished",
         "languages_used": ["js", "html", "css"]
     },
     {
@@ -164,7 +164,7 @@
         "images": ["/src/thumbnails/mcbump/mcbump_page_thumbnail.png", "/src/thumbnails/mcbump/mcbump_page_screenshot (2).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (3).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (4).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (5).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (6).png", "/src/thumbnails/mcbump/mcbump_page_screenshot (7).png"],
         "site_url": "https://www.mcbump.site",
         "date": "2025-01-04T00:00:00.000Z",
-        "state": "working_on",
+        "state": "finished",
         "languages_used": ["ts", "deno", "js", "html", "css", "minecraft"],
         "proud" : 5
     },
@@ -185,7 +185,17 @@
         "site_url": "https://rbxvibecoder.com",
         "date": "2025-07-12T00:00:00.000Z",
         "state": "finished",
+        "languages_used": ["ts", "deno", "js", "html", "css", "lua", "roblox"],
+        "proud" : 1
+    },
+    {
+        "title": "ZostanProducentem.pl",
+        "desc": "ZostanProducentem.pl was one of my webiste projects.",
+        "images": ["/src/thumbnails/zostanproducentem/Zrzut ekranu 2025-08-31 114309.png"],
+        "site_url": "https://zostanproducentem.pl",
+        "date": "2025-07-20T00:00:00.000Z",
+        "state": "finished",
         "languages_used": ["ts", "deno", "js", "html", "css"],
-        "proud" : 2
+        "proud" : 7
     }
 ]

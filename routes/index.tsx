@@ -51,7 +51,16 @@ export default function Home() {
 							</p>
 							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-8">7</span><span class="text-code-blue">int</span> total_projects = <span class="text-code-green" id="total_projects_value">{projectsData.length}</span><span class="text-code-gray">;</span></p>
 							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-4">8</span><span class="text-code-blue">private:</span></p>
-							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-8">9</span><span class="text-code-blue">int</span> age = <span class="text-code-green" id="age_value">{new Date().getFullYear() - 2010}</span><span class="text-code-gray">;</span></p>
+							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-8">9</span><span class="text-code-blue">int</span> age = <span class="text-code-green" id="age_value">{(() => {
+								const today = new Date();
+								const birthDate = new Date(2010, 0, 8); // January 8, 2010 (month is 0-indexed)
+								let age = today.getFullYear() - birthDate.getFullYear();
+								const monthDiff = today.getMonth() - birthDate.getMonth();
+								if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+									age--;
+								}
+								return age;
+							})()}</span><span class="text-code-gray">;</span></p>
 							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-6">10</span><span class="text-code-green">city</span> location = Poland.Cities.<span class="text-code-gray">Warsaw</span><span class="text-code-gray">;</span></p>
 							<p class="text-xs md:text-sm mb-1"><span class="text-code-gray mr-6">11</span><span class="text-code-green">vector&lt;string&gt;</span> hobbies = <span class="text-code-gray">&#123;</span>
 								<span class="text-code-orange">"Music"</span>, <span class="text-code-orange">"Coding"</span>, <span class="text-code-orange">"Python"</span>, <span class="text-code-orange">"Movie Making"</span> &#125;;</p>

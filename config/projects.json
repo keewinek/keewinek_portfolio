@@ -211,7 +211,7 @@
         "title": "GardenUp!",
         "desc": "Garden Up! is a garden design studio run by Rafał Kiciński. The website presents conceptual and technical design services, a portfolio of completed projects, and contact information. The company works with passion, combining nature, aesthetics, and functionality — offering services both locally in Lublin and remotely throughout Poland.",
         "images": ["/src/thumbnails/gardenup/1.png", "/src/thumbnails/gardenup/2.png"],
-        "site_url": "https://garden-up.pll",
+        "site_url": "https://garden-up.pl",
         "date": "2025-10-16T00:00:00.000Z",
         "state": "finished",
         "languages_used": ["js", "html", "css"]

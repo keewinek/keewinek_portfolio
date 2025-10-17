@@ -9,6 +9,7 @@ let dots = [];
 let timeoutID;
 let idle = false;
 let cursor;
+let isHoveringClickable = false;
 
 class Dot {
     constructor(index = 0) {
@@ -44,6 +45,11 @@ class Dot {
         this.lockY = this.y;
         this.angleX = Math.PI * 2 * Math.random();
         this.angleY = Math.PI * 2 * Math.random();
+    }
+
+    updateColor() {
+        // Color is now handled by CSS classes
+        // This method is kept for potential future enhancements
     }
 
     draw(delta) {
@@ -106,8 +112,56 @@ const onTouchMove = (event) => {
     }
 };
 
+// Function to check if element is clickable
+function isClickableElement(element) {
+    if (!element) return false;
+    
+    const clickableSelectors = [
+        'a', 'button', 'input', 'textarea', 'select',
+        '[role="button"]', '[tabindex]', '[onclick]',
+        '.clickable', '.cursor-pointer'
+    ];
+    
+    // Check if element matches any clickable selector
+    for (const selector of clickableSelectors) {
+        if (element.matches && element.matches(selector)) {
+            return true;
+        }
+    }
+    
+    // Check if element has clickable parent
+    let parent = element.parentElement;
+    while (parent && parent !== document.body) {
+        for (const selector of clickableSelectors) {
+            if (parent.matches && parent.matches(selector)) {
+                return true;
+            }
+        }
+        parent = parent.parentElement;
+    }
+    
+    return false;
+}
+
+// Function to update hover state based on mouse position
+function updateHoverState() {
+    const element = document.elementFromPoint(mousePosition.x + width / 2, mousePosition.y + width / 2);
+    const wasHoveringClickable = isHoveringClickable;
+    isHoveringClickable = isClickableElement(element);
+    
+    // If hover state changed, update cursor class
+    if (wasHoveringClickable !== isHoveringClickable && cursor) {
+        if (isHoveringClickable) {
+            cursor.classList.add('hovering-clickable');
+        } else {
+            cursor.classList.remove('hovering-clickable');
+        }
+    }
+}
+
 const render = timestamp => {
     const delta = timestamp - lastFrame;
+    updateHoverState();
     positionCursor(delta);
     lastFrame = timestamp;
     requestAnimationFrame(render);

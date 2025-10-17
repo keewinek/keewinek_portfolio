@@ -40,6 +40,12 @@ svg {
         background-color: white;
         transform-origin: center center;
         transform: translate(-50%, -50%);
+        transition: background-color 0.2s ease;
+    }
+
+    /* Red cursor state for clickable elements */
+    .ink-cursor.hovering-clickable span {
+        background-color: #ff6c6c;
     }
 
     /* Ensure the cursor works on all interactive elements */

@@ -28,6 +28,14 @@ svg {
         left: 0;
         z-index: 1000;
         filter: url("#goo");
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Hidden cursor state when mouse leaves window */
+    .ink-cursor.cursor-hidden {
+        opacity: 0;
+        pointer-events: none;
     }
 
     /* Individual cursor dots */

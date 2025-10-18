@@ -10,6 +10,7 @@ let timeoutID;
 let idle = false;
 let cursor;
 let isHoveringClickable = false;
+let isMouseInWindow = true;
 
 class Dot {
     constructor(index = 0) {
@@ -109,6 +110,20 @@ const onTouchMove = (event) => {
         mousePosition.x = event.touches[0].clientX - width / 2;
         mousePosition.y = event.touches[0].clientY - width / 2;
         resetIdleTimer();
+    }
+};
+
+const onMouseLeave = () => {
+    isMouseInWindow = false;
+    if (cursor) {
+        cursor.classList.add('cursor-hidden');
+    }
+};
+
+const onMouseEnter = () => {
+    isMouseInWindow = true;
+    if (cursor) {
+        cursor.classList.remove('cursor-hidden');
     }
 };
 
@@ -236,6 +251,8 @@ function initInkCursor() {
     // Add event listeners
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("touchmove", onTouchMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("mouseenter", onMouseEnter);
     
     console.log('Ink cursor initialized on desktop device');
 }
@@ -250,6 +267,8 @@ function handleResize() {
             dots = [];
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("touchmove", onTouchMove);
+            document.removeEventListener("mouseleave", onMouseLeave);
+            document.removeEventListener("mouseenter", onMouseEnter);
             console.log('Ink cursor removed due to device change');
         }
     } else if (isDesktopDevice()) {

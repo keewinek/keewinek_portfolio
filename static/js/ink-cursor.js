@@ -11,6 +11,9 @@ let idle = false;
 let cursor;
 let isHoveringClickable = false;
 let isMouseInWindow = true;
+let isScrolling = false;
+let scrollTimeout;
+let hasMouseMoved = false;
 
 class Dot {
     constructor(index = 0) {
@@ -103,6 +106,12 @@ const onMouseMove = event => {
     mousePosition.x = event.clientX - width / 2;
     mousePosition.y = event.clientY - width / 2;
     resetIdleTimer();
+    
+    // Show cursor on first mouse movement
+    if (!hasMouseMoved) {
+        hasMouseMoved = true;
+    }
+    updateCursorVisibility();
 };
 
 const onTouchMove = (event) => {
@@ -110,20 +119,40 @@ const onTouchMove = (event) => {
         mousePosition.x = event.touches[0].clientX - width / 2;
         mousePosition.y = event.touches[0].clientY - width / 2;
         resetIdleTimer();
+        
+        if (!hasMouseMoved) {
+            hasMouseMoved = true;
+        }
+        updateCursorVisibility();
     }
 };
 
 const onMouseLeave = () => {
     isMouseInWindow = false;
-    if (cursor) {
-        cursor.classList.add('cursor-hidden');
-    }
+    updateCursorVisibility();
 };
 
 const onMouseEnter = () => {
     isMouseInWindow = true;
-    if (cursor) {
-        cursor.classList.remove('cursor-hidden');
+    updateCursorVisibility();
+};
+
+const onScroll = (event) => {
+    const target = event.target;
+    const isScrollbarScroll = target === document.documentElement || 
+                             target === document.body || 
+                             target.scrollHeight > target.clientHeight;
+    
+    if (isScrollbarScroll) {
+        isScrolling = true;
+        updateCursorVisibility();
+        
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+            updateCursorVisibility();
+        }, 150);
     }
 };
 
@@ -174,9 +203,42 @@ function updateHoverState() {
     }
 }
 
+// Centralized function to determine cursor visibility
+function shouldCursorBeVisible() {
+    // Never show if mouse hasn't moved yet
+    if (!hasMouseMoved) return false;
+    
+    // Hide if currently scrolling with scrollbar
+    if (isScrolling) return false;
+    
+    const x = mousePosition.x + width / 2;
+    const y = mousePosition.y + width / 2;
+    
+    // Hide if mouse is at exactly (0, 0)
+    if (x === 0 && y === 0) return false;
+    
+    // Hide if mouse is outside viewport
+    if (!isMouseInWindow) return false;
+    
+    // Show cursor if all conditions pass
+    return true;
+}
+
+function updateCursorVisibility() {
+    if (!cursor) return;
+    
+    if (shouldCursorBeVisible()) {
+        cursor.classList.remove('cursor-hidden');
+    } else {
+        cursor.classList.add('cursor-hidden');
+    }
+}
+
+
 const render = timestamp => {
     const delta = timestamp - lastFrame;
     updateHoverState();
+    updateCursorVisibility();
     positionCursor(delta);
     lastFrame = timestamp;
     requestAnimationFrame(render);
@@ -229,7 +291,7 @@ function initInkCursor() {
     if (!cursor) {
         cursor = document.createElement("div");
         cursor.id = "ink-cursor";
-        cursor.className = "ink-cursor";
+        cursor.className = "ink-cursor cursor-hidden"; // Start hidden
         cursor.style.pointerEvents = "none";
         cursor.style.position = "fixed";
         cursor.style.display = "block";
@@ -253,6 +315,7 @@ function initInkCursor() {
     window.addEventListener("touchmove", onTouchMove);
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mouseenter", onMouseEnter);
+    window.addEventListener("scroll", onScroll, { passive: true });
     
     console.log('Ink cursor initialized on desktop device');
 }
@@ -265,10 +328,12 @@ function handleResize() {
             cursor.parentNode.removeChild(cursor);
             cursor = null;
             dots = [];
+            clearTimeout(scrollTimeout);
             window.removeEventListener("mousemove", onMouseMove);
             window.removeEventListener("touchmove", onTouchMove);
             document.removeEventListener("mouseleave", onMouseLeave);
             document.removeEventListener("mouseenter", onMouseEnter);
+            window.removeEventListener("scroll", onScroll);
             console.log('Ink cursor removed due to device change');
         }
     } else if (isDesktopDevice()) {

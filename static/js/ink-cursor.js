@@ -1,5 +1,5 @@
 // Ink Cursor Implementation for Fresh
-const amount = 20;
+const amount = 25;
 const sineDots = Math.floor(amount * 0.3);
 const width = 26;
 const idleTimeout = 150;

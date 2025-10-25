@@ -165,8 +165,7 @@
         "site_url": "https://www.mcbump.site",
         "date": "2025-01-04T00:00:00.000Z",
         "state": "finished",
-        "languages_used": ["ts", "deno", "js", "html", "css", "minecraft"],
-        "proud" : 5
+        "languages_used": ["ts", "deno", "js", "html", "css", "minecraft"]
     },
     {
         "title": "Spirr",
@@ -223,6 +222,7 @@
         "site_url": "https://nuve-agency.com",
         "date": "2025-10-20T00:00:00.000Z",
         "state": "finished",
-        "languages_used": ["js", "html", "css"]
+        "languages_used": ["js", "html", "css"],
+        "proud" : 5
     }
 ]

@@ -215,5 +215,14 @@
         "date": "2025-10-16T00:00:00.000Z",
         "state": "finished",
         "languages_used": ["js", "html", "css"]
+    },
+    {
+        "title": "NUVÉ",
+        "desc": "NUVÉ is a modern creative and influencer marketing agency with global presence — connecting visionary brands with authentic creators. The website was designed to reflect NUVÉ’s aesthetic excellence, emotional storytelling, and global energy across its offices in Warsaw, Paris, Miami, and Bali.",
+        "images": ["/src/thumbnails/nuve/1.png", "/src/thumbnails/nuve/2.png"],
+        "site_url": "https://nuve-agency.com",
+        "date": "2025-10-20T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": ["js", "html", "css"]
     }
 ]

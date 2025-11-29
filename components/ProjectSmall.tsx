@@ -39,7 +39,10 @@ export default function ProjectSmall({ project }: { project: any }) {
     const project_url = "./projects/" + project.title.toLowerCase().replace(/ /g, "-");
 
     return (
-        <div class="bg-background-dark border border-white/10 rounded-lg p-4 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group animation-fade-in">
+        <a 
+            href={project_url} 
+            class="block bg-background-dark border border-white/10 rounded-lg p-4 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group animation-fade-in cursor-pointer"
+        >
             {/* Project Image/Icon */}
             <div class="w-full h-[10rem] mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                 {project.images && project.images.length > 0 ? (
@@ -58,34 +61,19 @@ export default function ProjectSmall({ project }: { project: any }) {
             </div>
 
             {/* Project Title */}
-            <a href={project_url} target="_blank" rel="noopener noreferrer">
-                <h2 class="text-xl text-white mb-3 text-center flex items-center justify-center hover:text-red transition-colors duration-200">
-                    <span>{project.title}</span>
-                    <span 
-                        class={`inline-flex items-center px-3 ml-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.state)}`}
-                    >
-                        {getStatusText(project.state)}
-                    </span>
-                </h2>
-            </a>
+            <h2 class="text-xl text-white mb-3 text-center flex items-center justify-center hover:text-red transition-colors duration-200">
+                <span>{project.title}</span>
+                <span 
+                    class={`inline-flex items-center px-3 ml-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.state)}`}
+                >
+                    {getStatusText(project.state)}
+                </span>
+            </h2>
 
             {/* Project Description */}
             <p class="text-gray-300 text-sm mb-4 text-left leading-relaxed line-clamp-3">
                 {project.desc}
             </p>
-
-            <div class="mb-4 text-center">
-                <a 
-                    href={project_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={`inline-flex items-center text-white hover:text-red transition-colors duration-200 text-sm font-medium justify-between hover:bg-white/10
-                            border border-[1px] border-white/10 py-[2px] px-4 rounded-lg w-full hover:border-none`}
-                >
-                    <span class="flex-1 text-center">Learn more</span>
-                    <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-            </div>
 
             {/* Bottom Section */}
             <div class="flex items-center justify-between">
@@ -126,6 +114,6 @@ export default function ProjectSmall({ project }: { project: any }) {
                     )}
                 </div>
             </div>
-        </div>
+        </a>
     );
 }

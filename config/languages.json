@@ -82,5 +82,12 @@
         "icon": "/src/languages/deno.svg",
         "url": "https://deno.com",
         "type": "back-end"
+    },
+    {
+        "id": "flutter",
+        "name": "Flutter",
+        "icon": "/src/languages/flutter.svg",
+        "url": "https://flutter.dev",
+        "type": "front-end"
     }
 ]

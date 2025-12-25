@@ -21,6 +21,10 @@
     animation: fadeInUp 1s ease-in-out forwards;
 }
 
+.cartoon-3d-shadow {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 0 30px 0 rgba(0, 0, 0, 0.5);
+}
+
 .animation-fade-in:nth-child(1) { animation-delay: 0.1s; }
 .animation-fade-in:nth-child(2) { animation-delay: 0.3s; }
 .animation-fade-in:nth-child(3) { animation-delay: 0.5s; }

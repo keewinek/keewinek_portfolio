@@ -5,6 +5,7 @@ import languagesData from "../config/languages.json" with { type: "json" };
 import ProjectBig from "../components/ProjectBig.tsx";
 import LanguageSkill from "../components/LanguageSkill.tsx";
 import RevealOnScroll from "../islands/RevealOnScroll.tsx";
+import Button3D from "../components/Button3D.tsx";
 
 export default function Home() {
 	// get projects that are proud of
@@ -19,24 +20,26 @@ export default function Home() {
 			<script src="./js/main_page_effect.js"></script>
 			
 			<div class="px-2">
-				<div class="w-fit mx-auto max-w-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 max-md:w-full">
-					<h1 class="text-4xl md:text-6xl font-bold m-0 w-fit p-0 animation-fade-in">Nice to <span class="text-red">meet</span> you.</h1>
-					<h2 class="text-xl md:text-3xl m-0 mt-3 animation-fade-in">- I am <span class="text-red">keewinek</span>.</h2>
-					<a 
-						class="mt-8 md:mt-12 w-full text-center text-lg md:text-xl text-red border border-red px-6 py-3 rounded-full
-							transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center animation-fade-in" 
-						href="projects"
-					>
-						<span class="mx-auto w-full px-6">See my work</span>
-						<i class="fa-solid fa-arrow-right ml-auto"></i>
-					</a>
+				<div class="w-fit mx-auto max-w-[60rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 max-md:w-full">
+					<h1 class="text-4xl md:text-6xl font-bold m-0 w-fit p-0 animation-fade-in" style="font-family: 'Gravitas One', cursive;">Nice to <span class="text-red">meet</span> you.</h1>
+					<h2 class="text-xl md:text-3xl m-0 mt-3 animation-fade-in" style="font-family: 'Caveat', cursive;">- I am <span class="text-red">keewinek</span>.</h2>
+					<div class="mt-[2rem] w-fit animation-fade-in">
+						<Button3D
+							href="projects"
+						>
+							<span class="mx-auto w-full font-bold flex items-center text-left">
+								<span class="">See my work</span>
+								<i class="fa-solid fa-arrow-right ml-auto pl-[25px] mr-[20px]"></i>
+							</span>
+						</Button3D>
+					</div>
 				</div>
 
 				<div class="mt-[100vh]"></div>
 				
 				<div class="mb-12 max-w-3xl w-full mx-auto" id="about_me">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-6">About me</h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-6" style="font-family: 'Gravitas One', cursive;">About me</h1>
 					</RevealOnScroll>
 					<RevealOnScroll>
 						<div class="border-[1px] border-white/10 p-4 md:p-6 rounded-lg font-mono overflow-x-auto">
@@ -71,7 +74,7 @@ export default function Home() {
 
 				<div class="max-w-md w-full mx-auto" id="projects">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24">Proud of theese</h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" style="font-family: 'Gravitas One', cursive;">Proud of theese</h1>
 					</RevealOnScroll>
 					<div class="">
 						{proud_projects.map((project: any) => (
@@ -98,7 +101,7 @@ export default function Home() {
 
 				<div class="mb-12 mt-24 max-w-md w-full mx-auto" id="skills">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-8">Coding Skills</h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-8" style="font-family: 'Gravitas One', cursive;">Coding Skills</h1>
 					</RevealOnScroll>
 					<div class="languages_list w-full mx-auto">
 						<RevealOnScroll>
@@ -146,7 +149,7 @@ export default function Home() {
 
 				<div class="mb-12 max-w-md w-full mx-auto" id="contact">
 					<RevealOnScroll>
-						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" id="contact_header">Contact<span class="text-code-gray">*</span></h1>
+						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" id="contact_header" style="font-family: 'Gravitas One', cursive;">Contact<span class="text-code-gray">*</span></h1>
 					</RevealOnScroll>
 					<RevealOnScroll>
 						<Contact />

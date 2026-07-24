@@ -5,7 +5,23 @@ import languagesData from "../config/languages.json" with { type: "json" };
 import ProjectBig from "../components/ProjectBig.tsx";
 import LanguageSkill from "../components/LanguageSkill.tsx";
 import RevealOnScroll from "../islands/RevealOnScroll.tsx";
-import Button3D from "../components/Button3D.tsx";
+
+const ArrowIcon = () => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
+		aria-hidden="true"
+	>
+		<path d="M5 12h14" />
+		<path d="M13 6l6 6-6 6" />
+	</svg>
+);
 
 export default function Home() {
 	// get projects that are proud of
@@ -24,14 +40,13 @@ export default function Home() {
 					<h1 class="text-4xl md:text-6xl font-bold m-0 w-fit p-0 animation-fade-in" style="font-family: 'Gravitas One', cursive;">Nice to <span class="text-red">meet</span> you.</h1>
 					<h2 class="text-xl md:text-3xl m-0 mt-3 animation-fade-in" style="font-family: 'Caveat', cursive;">- I am <span class="text-red">keewinek</span>.</h2>
 					<div class="mt-[2rem] w-fit animation-fade-in">
-						<Button3D
-							href="projects"
+						<a
+							href="/projects"
+							class="group inline-flex items-center gap-3 text-lg md:text-xl font-bold text-white border-b border-red/60 pb-1 transition-colors duration-300 hover:text-red hover:border-red"
 						>
-							<span class="mx-auto w-full font-bold flex items-center text-left">
-								<span class="">See my work</span>
-								<i class="fa-solid fa-arrow-right ml-auto pl-[25px] mr-[20px]"></i>
-							</span>
-						</Button3D>
+							See my work
+							<ArrowIcon />
+						</a>
 					</div>
 				</div>
 
@@ -87,13 +102,12 @@ export default function Home() {
 					</div>
 					<RevealOnScroll>
 						<div class="text-center my-8">
-							<a 
-								class="mt-4 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-								href="./projects"
-								target="_blank"
+							<a
+								href="/projects"
+								class="group inline-flex items-center gap-3 text-lg font-bold text-red border-b border-red/60 pb-1 transition-colors duration-300 hover:border-red"
 							>
-								<span class="mx-auto w-full px-6">See all projects</span>
-								<i class="fa-solid fa-arrow-right ml-auto"></i>
+								See all projects
+								<ArrowIcon />
 							</a>
 						</div>
 					</RevealOnScroll>

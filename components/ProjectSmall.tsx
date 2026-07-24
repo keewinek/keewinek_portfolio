@@ -50,6 +50,8 @@ export default function ProjectSmall({ project }: { project: any }) {
                         src={project.images[0]} 
                         alt={project.title}
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        decoding="async"
                     />
                 ) : (
                     <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center">

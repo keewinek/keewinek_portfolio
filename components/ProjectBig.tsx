@@ -1,12 +1,12 @@
 import languagesData from "../config/languages.json" with { type: "json" };
 import Carousel from "../islands/Carousel.tsx";
+import { LinkIcon } from "./Icons.tsx";
 
 export default function ProjectBig({ project }: { project: any }) {
 	return (
 		<div class="w-full mb-24 mt-12">
 			<h2 class="md:text-4xl text-2xl text-center mb-6">{project.title}</h2>
 
-			{/* Project Images Carousel */}
 			{project.images && project.images.length > 0 && (
 				<div class="mb-6">
 					<Carousel 
@@ -35,12 +35,11 @@ export default function ProjectBig({ project }: { project: any }) {
 
             <a 
                 class="mt-6 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-                id="contact_send_button"
                 href={project.site_url}
                 target="_blank"
             >
                 <span class="mx-auto w-full px-6">Check out {project.title}</span>
-                <i class="fa-solid fa-link ml-auto"></i>
+                <LinkIcon class="w-4 h-4 ml-auto" />
             </a>
 		</div>
 	);

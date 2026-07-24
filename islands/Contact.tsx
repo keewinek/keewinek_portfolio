@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { ArrowRightIcon, SpinnerIcon } from "../components/Icons.tsx";
 
 export default function Contact({contact_place = "contact"}: {contact_place?: string}) {
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1292491295042048010/eaIjIrqefDTWtxOdw38yN6a_kNAknPm1s1QldWOFgI0OgOcZ-xFFuk8HypZk-kAj2Moy"
@@ -7,17 +8,12 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
     const [isSending, setIsSending] = useState(false);
 
     const sendMessage = async () => {
-        console.log("Sending message...");
-        
         const message = document.getElementById("contact_message") as HTMLTextAreaElement;
         const email = document.getElementById("contact_email") as HTMLInputElement;
-        const sendButton = document.getElementById("contact_send_button") as HTMLElement;
 
-        // Hide previous messages and errors
         document.getElementById("contact_success")?.classList.add("hidden");
         setMessageError("");
 
-        // Validation
         if (message.value.length < 10) {
             setMessageError("Message is too short. It must be at least 10 characters long.");
             return;
@@ -28,13 +24,9 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
             return;
         }
 
-        // Set loading state
         setIsSending(true);
-        sendButton.classList.add("opacity-50", "cursor-not-allowed");
-        sendButton.innerHTML = '<span class="mx-auto w-full px-6">Sending...</span><i class="fa-solid fa-spinner fa-spin ml-auto"></i>';
 
         try {
-            // Create Discord webhook payload
             const webhookPayload = {
                 embeds: [
                     {
@@ -56,7 +48,6 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
                 ]
             };
 
-            // Send to Discord webhook
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
                 headers: {
@@ -70,7 +61,6 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
                 throw new Error(`Discord webhook failed: ${response.status} ${response.statusText}`);
             }
 
-            // Success - clear form and show success message
             message.value = "";
             email.value = "";
             setMessageError("");
@@ -80,10 +70,7 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
             console.error("Error sending message:", error);
             setMessageError("Failed to send message. Please try again later.");
         } finally {
-            // Reset loading state
             setIsSending(false);
-            sendButton.classList.remove("opacity-50", "cursor-not-allowed");
-            sendButton.innerHTML = '<span class="mx-auto w-full px-6">Send</span><i class="fa-solid fa-arrow-right ml-auto"></i>';
         }
     };
 
@@ -117,8 +104,12 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
                 onClick={sendMessage}
                 disabled={isSending}
             >
-                <span class="mx-auto w-full px-6">Send</span>
-                <i class="fa-solid fa-arrow-right ml-auto"></i>
+                <span class="mx-auto w-full px-6">{isSending ? "Sending..." : "Send"}</span>
+                {isSending ? (
+                    <SpinnerIcon class="w-4 h-4 ml-auto animate-spin" />
+                ) : (
+                    <ArrowRightIcon class="w-4 h-4 ml-auto" />
+                )}
             </button>
         </>
     );

@@ -5,7 +5,8 @@ import Carousel from "../../islands/Carousel.tsx";
 import LanguageSkill from "../../components/LanguageSkill.tsx";
 import languagesData from "../../config/languages.json" with { type: "json" };
 import Contact from "../../islands/Contact.tsx";
-import RevealOnScroll from "../../islands/RevealOnScroll.tsx";
+import RevealOnScroll from "../../components/RevealOnScroll.tsx";
+import { LinkIcon, DownloadIcon } from "../../components/Icons.tsx";
 
 export default function ProjectPage(props: PageProps) {
     const project = projectsData.find((project: any) => project.title.toLowerCase() === props.params.project_id.replace(/-/g, " "));
@@ -77,7 +78,7 @@ export default function ProjectPage(props: PageProps) {
                                     target="_blank"
                                 >
                                     <span class="mx-auto w-full px-6">Go to {project.title}'s website</span>
-                                    <i class="fa-solid fa-link ml-auto"></i>
+                                    <LinkIcon class="w-4 h-4 ml-auto" />
                                 </a>
                             </RevealOnScroll>
 
@@ -92,7 +93,7 @@ export default function ProjectPage(props: PageProps) {
                                                     target="_blank" rel="noopener noreferrer" download
                                                 >
                                                     <span class="mx-auto w-full px-6">Download {download.name}</span>
-                                                    <i class="fa-solid fa-download ml-auto"></i>
+                                                    <DownloadIcon class="w-4 h-4 ml-auto" />
                                                 </a>
                                             </RevealOnScroll>
                                         </>

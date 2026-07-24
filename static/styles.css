@@ -101,3 +101,23 @@
     scrollbar-width: thin;
     scrollbar-color: #ff6c6c #000000;
 }
+
+/* Scroll reveal (driven by /js/reveal-on-scroll.js) */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

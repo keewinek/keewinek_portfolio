@@ -3,6 +3,7 @@ import { useEffect } from "preact/hooks";
 import projectsData from "../config/projects.json" with { type: "json" };
 import languagesData from "../config/languages.json" with { type: "json" };
 import ProjectSmall from "../components/ProjectSmall.tsx";
+import { SearchIcon } from "../components/Icons.tsx";
 
 interface ProjectsGridProps {
 	initialSearchQuery?: string;
@@ -135,7 +136,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 				<div class="md:ml-4">
 					{/* Search Input */}
 					<div class="relative animation-fade-in-up">
-						<i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-[40%] w-5 h-5 text-white/50"></i>
+						<SearchIcon class="absolute left-3 top-1/2 transform -translate-y-[40%] w-5 h-5 text-white/50" />
 						<input 
 							value={searchTerm.value}
 							onInput={handleSearchChange}

@@ -4,24 +4,8 @@ import projectsData from "../config/projects.json" with { type: "json" };
 import languagesData from "../config/languages.json" with { type: "json" };
 import ProjectBig from "../components/ProjectBig.tsx";
 import LanguageSkill from "../components/LanguageSkill.tsx";
-import RevealOnScroll from "../islands/RevealOnScroll.tsx";
-
-const ArrowIcon = () => (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="2"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
-		aria-hidden="true"
-	>
-		<path d="M5 12h14" />
-		<path d="M13 6l6 6-6 6" />
-	</svg>
-);
+import RevealOnScroll from "../components/RevealOnScroll.tsx";
+import { ArrowRightIcon } from "../components/Icons.tsx";
 
 export default function Home() {
 	// get projects that are proud of
@@ -33,7 +17,7 @@ export default function Home() {
 			<NavBar />
 
 			<canvas id="main_page_background" class="w-full h-[calc(100vh-70px)] absolute top-10 bg-background-dark"></canvas>
-			<script src="./js/main_page_effect.js"></script>
+			<script src="/js/main_page_effect.js" defer></script>
 			
 			<div class="px-2">
 				<div class="w-fit mx-auto max-w-[60rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 max-md:w-full">
@@ -45,7 +29,7 @@ export default function Home() {
 							class="group inline-flex items-center gap-3 text-lg md:text-xl font-bold text-white border-b border-red/60 pb-1 transition-colors duration-300 hover:text-red hover:border-red"
 						>
 							See my work
-							<ArrowIcon />
+							<ArrowRightIcon class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
 						</a>
 					</div>
 				</div>
@@ -107,7 +91,7 @@ export default function Home() {
 								class="group inline-flex items-center gap-3 text-lg font-bold text-red border-b border-red/60 pb-1 transition-colors duration-300 hover:border-red"
 							>
 								See all projects
-								<ArrowIcon />
+								<ArrowRightIcon class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
 							</a>
 						</div>
 					</RevealOnScroll>

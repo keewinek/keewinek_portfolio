@@ -4,9 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
 import * as $discord from "./routes/discord.tsx";
-import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $projects_project_id_ from "./routes/projects/[project_id].tsx";
 import * as $projects_index from "./routes/projects/index.tsx";
@@ -15,16 +13,13 @@ import * as $Contact from "./islands/Contact.tsx";
 import * as $NavBar from "./islands/NavBar.tsx";
 import * as $ProjectsGrid from "./islands/ProjectsGrid.tsx";
 import * as $Redirect from "./islands/Redirect.tsx";
-import * as $RevealOnScroll from "./islands/RevealOnScroll.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/joke.ts": $api_joke,
     "./routes/discord.tsx": $discord,
-    "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/projects/[project_id].tsx": $projects_project_id_,
     "./routes/projects/index.tsx": $projects_index,
@@ -35,7 +30,6 @@ const manifest = {
     "./islands/NavBar.tsx": $NavBar,
     "./islands/ProjectsGrid.tsx": $ProjectsGrid,
     "./islands/Redirect.tsx": $Redirect,
-    "./islands/RevealOnScroll.tsx": $RevealOnScroll,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

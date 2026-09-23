@@ -7,6 +7,7 @@ import languagesData from "../../config/languages.json" with { type: "json" };
 import Contact from "../../islands/Contact.tsx";
 import RevealOnScroll from "../../components/RevealOnScroll.tsx";
 import { LinkIcon, DownloadIcon } from "../../components/Icons.tsx";
+import Button from "../../components/Button.tsx";
 
 export default function ProjectPage(props: PageProps) {
     const project = projectsData.find((project: any) => project.title.toLowerCase() === props.params.project_id.replace(/-/g, " "));
@@ -37,15 +38,17 @@ export default function ProjectPage(props: PageProps) {
                         </RevealOnScroll>
 
                         <div class="max-w-xl w-full mx-auto">
-                            <RevealOnScroll>
-                                <Carousel
-                                    images={project?.images}
-                                    autoPlay={true}
-                                    autoPlayInterval={4000}
-                                    showDots={true}
-                                    showArrows={true}
-                                />
-                            </RevealOnScroll>
+                            {project?.images && project.images.length > 0 && (
+                                <RevealOnScroll>
+                                    <Carousel
+                                        images={project.images}
+                                        autoPlay={true}
+                                        autoPlayInterval={4000}
+                                        showDots={true}
+                                        showArrows={true}
+                                    />
+                                </RevealOnScroll>
+                            )}
 
                             <RevealOnScroll>
                                 <p class="text-gray-200 text-justify text-sm mb-2 mt-4">{project?.desc}</p>
@@ -72,14 +75,11 @@ export default function ProjectPage(props: PageProps) {
                             </RevealOnScroll>
 
                             <RevealOnScroll>
-                                <a 
-                                    class="mt-8 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                    href={project.site_url}
-                                    target="_blank"
-                                >
-                                    <span class="mx-auto w-full px-6">Go to {project.title}'s website</span>
-                                    <LinkIcon class="w-4 h-4 ml-auto" />
-                                </a>
+                                <div class="mt-8 flex justify-center">
+                                    <Button href={project.site_url} target="_blank" size="lg" icon={<LinkIcon class="h-4 w-4" />}>
+                                        Go to {project.title}'s website
+                                    </Button>
+                                </div>
                             </RevealOnScroll>
 
                             {project?.downloads && project?.downloads.length > 0 && (
@@ -87,14 +87,17 @@ export default function ProjectPage(props: PageProps) {
                                     {project?.downloads.map((download: any) => (
                                         <>
                                             <RevealOnScroll>
-                                                <a 
-                                                    class="mt-4 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                                    href={download.url}
-                                                    target="_blank" rel="noopener noreferrer" download
-                                                >
-                                                    <span class="mx-auto w-full px-6">Download {download.name}</span>
-                                                    <DownloadIcon class="w-4 h-4 ml-auto" />
-                                                </a>
+                                                <div class="mt-4 flex justify-center">
+                                                    <Button
+                                                        href={download.url}
+                                                        target="_blank"
+                                                        download
+                                                        variant="secondary"
+                                                        icon={<DownloadIcon class="h-4 w-4" />}
+                                                    >
+                                                        Download {download.name}
+                                                    </Button>
+                                                </div>
                                             </RevealOnScroll>
                                         </>
                                     ))}

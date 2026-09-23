@@ -6,6 +6,7 @@ import ProjectBig from "../components/ProjectBig.tsx";
 import LanguageSkill from "../components/LanguageSkill.tsx";
 import RevealOnScroll from "../components/RevealOnScroll.tsx";
 import { ArrowRightIcon } from "../components/Icons.tsx";
+import Button from "../components/Button.tsx";
 
 export default function Home() {
 	// get projects that are proud of
@@ -16,27 +17,28 @@ export default function Home() {
 		<div class="bg-background-black text-white font-Comfortaa overflow-x-hidden max-w-[100vw]">
 			<NavBar />
 
-			<canvas id="main_page_background" class="w-full h-[calc(100vh-70px)] absolute top-10 bg-background-dark"></canvas>
-			<script src="/js/main_page_effect.js" defer></script>
-			
-			<div class="px-2">
-				<div class="w-fit mx-auto max-w-[60rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 max-md:w-full">
-					<h1 class="text-4xl md:text-6xl font-bold m-0 w-fit p-0 animation-fade-in" style="font-family: 'Gravitas One', cursive;">Nice to <span class="text-red">meet</span> you.</h1>
-					<h2 class="text-xl md:text-3xl m-0 mt-3 animation-fade-in" style="font-family: 'Caveat', cursive;">- I am <span class="text-red">keewinek</span>.</h2>
-					<div class="mt-[2rem] w-fit animation-fade-in">
-						<a
-							href="/projects"
-							class="group inline-flex items-center gap-3 text-lg md:text-xl font-bold text-white border-b border-red/60 pb-1 transition-colors duration-300 hover:text-red hover:border-red"
-						>
-							See my work
-							<ArrowRightIcon class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
-						</a>
-					</div>
+			<section class="relative flex min-h-screen w-full flex-col items-center justify-center px-6 text-center">
+				<h1 class="animation-fade-in m-0 p-0 text-4xl font-bold leading-tight md:text-7xl" style="font-family: 'Gravitas One', cursive;">
+					Nice to <span class="text-red">meet</span> you.
+				</h1>
+				<h2 class="animation-fade-in m-0 mt-4 text-xl md:text-3xl" style="font-family: 'Caveat', cursive;">
+					- I am <span class="text-red">keewinek</span>.
+				</h2>
+				<p class="animation-fade-in mt-6 max-w-xl text-sm text-white/60 md:text-base">
+					Developer from Warsaw building web apps, mobile apps and games.
+				</p>
+				<div class="animation-fade-in mt-10 flex flex-col items-center gap-3 sm:flex-row">
+					<Button href="/projects" size="lg" icon={<ArrowRightIcon class="h-4 w-4" />}>
+						See my work
+					</Button>
+					<Button href="#contact" variant="ghost" size="lg">
+						Get in touch
+					</Button>
 				</div>
+			</section>
 
-				<div class="mt-[100vh]"></div>
-				
-				<div class="mb-12 max-w-3xl w-full mx-auto" id="about_me">
+			<div class="px-2">
+				<div class="mb-12 max-w-3xl w-full mx-auto scroll-mt-28" id="about_me">
 					<RevealOnScroll>
 						<h1 class="text-center text-2xl md:text-4xl mb-6" style="font-family: 'Gravitas One', cursive;">About me</h1>
 					</RevealOnScroll>
@@ -71,7 +73,7 @@ export default function Home() {
 					</RevealOnScroll>
 				</div>
 
-				<div class="max-w-md w-full mx-auto" id="projects">
+				<div class="max-w-md w-full mx-auto scroll-mt-28" id="projects">
 					<RevealOnScroll>
 						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" style="font-family: 'Gravitas One', cursive;">Proud of theese</h1>
 					</RevealOnScroll>
@@ -86,18 +88,14 @@ export default function Home() {
 					</div>
 					<RevealOnScroll>
 						<div class="text-center my-8">
-							<a
-								href="/projects"
-								class="group inline-flex items-center gap-3 text-lg font-bold text-red border-b border-red/60 pb-1 transition-colors duration-300 hover:border-red"
-							>
+							<Button href="/projects" variant="secondary" icon={<ArrowRightIcon class="h-4 w-4" />}>
 								See all projects
-								<ArrowRightIcon class="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
-							</a>
+							</Button>
 						</div>
 					</RevealOnScroll>
 				</div>
 
-				<div class="mb-12 mt-24 max-w-md w-full mx-auto" id="skills">
+				<div class="mb-12 mt-24 max-w-md w-full mx-auto scroll-mt-28" id="skills">
 					<RevealOnScroll>
 						<h1 class="text-center text-2xl md:text-4xl mb-8" style="font-family: 'Gravitas One', cursive;">Coding Skills</h1>
 					</RevealOnScroll>
@@ -145,7 +143,7 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div class="mb-12 max-w-md w-full mx-auto" id="contact">
+				<div class="mb-12 max-w-md w-full mx-auto scroll-mt-28" id="contact">
 					<RevealOnScroll>
 						<h1 class="text-center text-2xl md:text-4xl mb-8 mt-24" id="contact_header" style="font-family: 'Gravitas One', cursive;">Contact<span class="text-code-gray">*</span></h1>
 					</RevealOnScroll>

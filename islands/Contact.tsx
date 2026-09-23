@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
 import { ArrowRightIcon, SpinnerIcon } from "../components/Icons.tsx";
+import Button from "../components/Button.tsx";
 
 export default function Contact({contact_place = "contact"}: {contact_place?: string}) {
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1292491295042048010/eaIjIrqefDTWtxOdw38yN6a_kNAknPm1s1QldWOFgI0OgOcZ-xFFuk8HypZk-kAj2Moy"
@@ -98,19 +99,17 @@ export default function Contact({contact_place = "contact"}: {contact_place?: st
             <p class="text-red my-2" id="contact_error">{messageError}</p>
             <p class="text-green-200 my-2 hidden" id="contact_success">Message sent successfully!</p>
 
-            <button 
-                class="w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+            <Button
                 id="contact_send_button"
                 onClick={sendMessage}
                 disabled={isSending}
+                fullWidth
+                icon={isSending
+                    ? <SpinnerIcon class="h-4 w-4 animate-spin" />
+                    : <ArrowRightIcon class="h-4 w-4" />}
             >
-                <span class="mx-auto w-full px-6">{isSending ? "Sending..." : "Send"}</span>
-                {isSending ? (
-                    <SpinnerIcon class="w-4 h-4 ml-auto animate-spin" />
-                ) : (
-                    <ArrowRightIcon class="w-4 h-4 ml-auto" />
-                )}
-            </button>
+                {isSending ? "Sending..." : "Send"}
+            </Button>
         </>
     );
 }

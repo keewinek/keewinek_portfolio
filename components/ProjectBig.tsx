@@ -1,6 +1,7 @@
 import languagesData from "../config/languages.json" with { type: "json" };
 import Carousel from "../islands/Carousel.tsx";
 import { LinkIcon } from "./Icons.tsx";
+import Button from "./Button.tsx";
 
 export default function ProjectBig({ project }: { project: any }) {
 	return (
@@ -33,14 +34,11 @@ export default function ProjectBig({ project }: { project: any }) {
 				))}
 			</div>
 
-            <a 
-                class="mt-6 w-full text-center text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-                href={project.site_url}
-                target="_blank"
-            >
-                <span class="mx-auto w-full px-6">Check out {project.title}</span>
-                <LinkIcon class="w-4 h-4 ml-auto" />
-            </a>
+            <div class="mt-8 flex justify-center">
+                <Button href={project.site_url} target="_blank" icon={<LinkIcon class="h-4 w-4" />}>
+                    Check out {project.title}
+                </Button>
+            </div>
 		</div>
 	);
 }

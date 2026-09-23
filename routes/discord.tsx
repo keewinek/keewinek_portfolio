@@ -1,6 +1,7 @@
 import NavBar from "../islands/NavBar.tsx";
 import Redirect from "../islands/Redirect.tsx";
 import { ArrowRightIcon } from "../components/Icons.tsx";
+import Button from "../components/Button.tsx";
 
 export default function Discord() {
 	const DISCORD_INVITE_URL = "https://discord.gg/VCsGp8xCtf";
@@ -15,11 +16,10 @@ export default function Discord() {
 
 				<h1 class="text-center text-3xl md:text-6xl mb-[4rem] mt-[5rem]">My Discord Server</h1>
 
-				<div class="max-w-md w-full mx-auto">
-					<a href={DISCORD_INVITE_URL} target="_blank" class="text-center text-lg md:text-xl text-red border border-red px-6 py-3 rounded-full transition-all duration-200 hover:bg-red hover:text-background-black font-bold flex items-center">
-						<span class="mx-auto w-full px-6">Join my Discord Server</span>
-						<ArrowRightIcon class="w-4 h-4 ml-auto" />
-					</a>
+				<div class="max-w-md w-full mx-auto flex justify-center">
+					<Button href={DISCORD_INVITE_URL} target="_blank" size="lg" icon={<ArrowRightIcon class="h-4 w-4" />}>
+						Join my Discord Server
+					</Button>
 				</div>
 
 				<Redirect url={DISCORD_INVITE_URL} />

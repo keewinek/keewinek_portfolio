@@ -384,7 +384,7 @@
     },
     {
         "title": "GardenUp!",
-        "desc": "Garden Up! is a garden design studio run by Rafa\u0142 Kici\u0144ski. The website presents conceptual and technical design services, a portfolio of completed projects, and contact information. The company works with passion, combining nature, aesthetics, and functionality \u2014 offering services both locally in Lublin and remotely throughout Poland.",
+        "desc": "Garden Up! is a garden design studio run by Rafał Kiciński. The website presents conceptual and technical design services, a portfolio of completed projects, and contact information. The company works with passion, combining nature, aesthetics, and functionality — offering services both locally in Lublin and remotely throughout Poland.",
         "images": [
             "/src/thumbnails/gardenup/1.jpg",
             "/src/thumbnails/gardenup/2.png"
@@ -400,7 +400,7 @@
     },
     {
         "title": "NUVE",
-        "desc": "NUV\u00c9 is a modern creative and influencer marketing agency with global presence \u2014 connecting visionary brands with authentic creators. The website was designed to reflect NUV\u00c9's aesthetic excellence, emotional storytelling, and global energy across its offices in Warsaw, Paris, Miami, and Bali.",
+        "desc": "NUVÉ is a modern creative and influencer marketing agency with global presence — connecting visionary brands with authentic creators. The website was designed to reflect NUVÉ's aesthetic excellence, emotional storytelling, and global energy across its offices in Warsaw, Paris, Miami, and Bali.",
         "images": [
             "/src/thumbnails/nuve/1.jpg",
             "/src/thumbnails/nuve/2.png"
@@ -437,5 +437,19 @@
             "css"
         ],
         "proud": 10
+    },
+    {
+        "title": "Newear",
+        "desc": "Newear is my own project running at newear.pl. It is a web platform I design, build and maintain end to end — from the interface to the backend. Visit newear.pl to see the live version.",
+        "images": [],
+        "site_url": "https://newear.pl",
+        "date": "2026-09-23T00:00:00.000Z",
+        "state": "working_on",
+        "languages_used": [
+            "ts",
+            "js",
+            "html",
+            "css"
+        ]
     }
 ]

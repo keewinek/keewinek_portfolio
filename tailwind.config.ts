@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         'background-black': '#000000',
+        'background-dark': '#0b0b0b',
         'red': '#ff6c6c',
+        'red-bright': '#ff8a8a',
         'white': '#e0e0e0',
         'white-transparent': '#e0e0e0c5',
         'white-2': '#929292',

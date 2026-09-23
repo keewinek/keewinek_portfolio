@@ -4,6 +4,7 @@ import projectsData from "../config/projects.json" with { type: "json" };
 import languagesData from "../config/languages.json" with { type: "json" };
 import ProjectSmall from "../components/ProjectSmall.tsx";
 import { SearchIcon } from "../components/Icons.tsx";
+import Button from "../components/Button.tsx";
 
 interface ProjectsGridProps {
 	initialSearchQuery?: string;
@@ -101,36 +102,21 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 			{/* Filters and Search Section */}
 			<div class="mb-8 flex flex-col md:flex-row gap-4 md:gap-0 border-b border-white/10 pb-4">
 				<div class="flex flex-wrap gap-2">
-					<button 
-						onClick={() => handleFilterClick("all")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
-							activeFilter.value === "all" 
-								? "bg-red text-background-black border-red" 
-								: "text-red hover:bg-red border-red hover:text-background-black"
-						}`}
-					>
-						All
-					</button>
-					<button 
-						onClick={() => handleFilterClick("finished")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
-							activeFilter.value === "finished" 
-								? "bg-red text-background-black border-red" 
-								: "text-red hover:bg-red border-red hover:text-background-black"
-						}`}
-					>
-						Finished
-					</button>
-					<button 
-						onClick={() => handleFilterClick("working_on")}
-						class={`inline-flex items-center px-3 rounded-full transition-all duration-200 text-center select-none cursor-pointer border animation-fade-in-up ${
-							activeFilter.value === "working_on" 
-								? "bg-red text-background-black border-red" 
-								: "text-red hover:bg-red border-red hover:text-background-black"
-						}`}
-					>
-						Working on
-					</button>
+					{[
+						{ id: "all", label: "All" },
+						{ id: "finished", label: "Finished" },
+						{ id: "working_on", label: "Working on" },
+					].map((filter) => (
+						<Button
+							key={filter.id}
+							size="sm"
+							variant={activeFilter.value === filter.id ? "primary" : "ghost"}
+							onClick={() => handleFilterClick(filter.id)}
+							class="animation-fade-in-up"
+						>
+							{filter.label}
+						</Button>
+					))}
 				</div>
 
 				<div class="md:ml-4">
@@ -142,7 +128,7 @@ export default function ProjectsGrid({ initialSearchQuery = "" }: ProjectsGridPr
 							onInput={handleSearchChange}
 							placeholder="Search by anything" 
 							type="text" 
-							class="w-full md:w-80 pl-10 pr-4 py-[2px] bg-background-black rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-red transition-colors duration-200"
+							class="w-full md:w-80 pl-10 pr-4 py-2 bg-background-dark border border-white/15 rounded-full text-white placeholder-white/40 focus:outline-none focus:border-red focus:ring-2 focus:ring-red/30 transition-all duration-200"
 						/>
 					</div>
 				</div>

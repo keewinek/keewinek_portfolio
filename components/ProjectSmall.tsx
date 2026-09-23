@@ -41,10 +41,10 @@ export default function ProjectSmall({ project }: { project: any }) {
     return (
         <a 
             href={project_url} 
-            class="block bg-background-dark border border-white/10 rounded-lg p-4 hover:border-white/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group animation-fade-in cursor-pointer"
+            class="block bg-background-dark border border-white/10 rounded-2xl p-4 hover:border-red/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-black/40 group animation-fade-in cursor-pointer"
         >
             {/* Project Image/Icon */}
-            <div class="w-full h-[10rem] mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+            <div class="w-full h-[10rem] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                 {project.images && project.images.length > 0 ? (
                     <img 
                         src={project.images[0]} 
@@ -54,8 +54,8 @@ export default function ProjectSmall({ project }: { project: any }) {
                         decoding="async"
                     />
                 ) : (
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center">
-                        <span class="text-2xl font-bold text-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red to-red-bright rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold text-background-black">
                             {project.title.charAt(0).toUpperCase()}
                         </span>
                     </div>

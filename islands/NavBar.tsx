@@ -36,7 +36,7 @@ export default function NavBar() {
 			{/* Desktop Navigation */}
 			<nav 
 				id="main_nav" 
-				class="fixed top-0 left-1/2 -translate-x-1/2 z-50 overflow-hidden w-full max-w-fit max-h-[2.5rem] flex-row items-center justify-center mt-2 py-2 px-8 backdrop-blur-lg rounded-full hidden lg:flex"
+				class="fixed top-0 left-1/2 -translate-x-1/2 z-50 overflow-hidden w-full max-w-fit max-h-[3rem] flex-row items-center justify-center mt-3 py-2 px-8 bg-background-dark/70 border border-white/10 backdrop-blur-xl rounded-full shadow-lg shadow-black/40 hidden lg:flex"
 			>
 				<a href="/" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200 animation-fade-in-up">
 					<img id="nav_home_icon" src="/logo.png" class="h-[30px] object-contain"/>
@@ -50,7 +50,7 @@ export default function NavBar() {
 			</nav>
 
 			{/* Mobile Navigation */}
-			<nav class="fixed top-0 left-0 right-0 z-50 lg:hidden backdrop-blur-lg">
+			<nav class="fixed top-0 left-0 right-0 z-50 lg:hidden bg-background-black/70 border-b border-white/10 backdrop-blur-xl">
 				<div class="flex items-center justify-center px-4 py-3">
 					{/* Logo and Title - Centered */}
 					<a href="/" class="flex items-center space-x-2 no-underline text-white">

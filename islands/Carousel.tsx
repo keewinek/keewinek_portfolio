@@ -102,8 +102,8 @@ export default function Carousel({
 
     if (!images || images.length === 0) {
         return (
-            <div class={`w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center ${className}`}>
-                <p class="text-gray-500">No images available</p>
+            <div class={`w-full h-64 bg-background-dark border border-white/10 rounded-xl flex items-center justify-center ${className}`}>
+                <p class="text-white/40 text-sm">No images available</p>
             </div>
         );
     }

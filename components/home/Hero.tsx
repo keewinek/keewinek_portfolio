@@ -28,9 +28,9 @@ const COLLAGE = [
 	},
 	{
 		slug: "newear",
-		src: "/src/thumbnails/newear/3.jpg",
-		alt: "Newear hoodie and sweatpants set",
-		pos: "right-[6%] bottom-[-2%] w-[32%]",
+		src: "/src/thumbnails/newear/1.jpg",
+		alt: "Newear online store",
+		pos: "right-[2%] bottom-[2%] w-[50%]",
 		rotate: "6deg",
 		drift: "-190px",
 		delay: 500,

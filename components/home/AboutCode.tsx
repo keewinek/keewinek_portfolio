@@ -64,8 +64,7 @@ export default function AboutCode() {
 						</p>
 						<p>
 							I like owning the whole thing: the design, the frontend, the backend and getting it live. Right now
-							that means <a href="/projects/studdly" class="text-fg underline decoration-red decoration-2 underline-offset-4 hover:text-red">Studdly</a> and{" "}
-							<a href="/projects/newear" class="text-fg underline decoration-red decoration-2 underline-offset-4 hover:text-red">Newear</a>.
+							I'm working on <a href="/projects/studdly" class="text-fg underline decoration-red decoration-2 underline-offset-4 hover:text-red">Studdly</a>.
 						</p>
 					</div>
 

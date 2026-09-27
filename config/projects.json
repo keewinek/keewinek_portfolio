@@ -454,7 +454,7 @@
         ],
         "site_url": "https://newear.pl",
         "date": "2026-09-23T00:00:00.000Z",
-        "state": "working_on",
+        "state": "finished",
         "languages_used": [
             "ts",
             "deno",
@@ -463,5 +463,24 @@
             "css"
         ],
         "proud": 6
+    },
+    {
+        "title": "Homeyko",
+        "desc": "Homeyko is the campaign website of Filip Gałązka, running for student council president at CXXII LO im. Ignacego Domeyki in Warsaw. It presents his campaign promises, why he is running and the campaign team, and lets students send in their own ideas and questions through contact forms.",
+        "tagline": "Campaign website for a student council election.",
+        "images": [
+            "/src/thumbnails/homeyko/1.jpg",
+            "/src/thumbnails/homeyko/2.jpg",
+            "/src/thumbnails/homeyko/3.jpg",
+            "/src/thumbnails/homeyko/4.jpg"
+        ],
+        "site_url": "https://homeyko.pl",
+        "date": "2026-09-27T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": [
+            "js",
+            "html",
+            "css"
+        ]
     }
 ]

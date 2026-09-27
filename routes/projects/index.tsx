@@ -1,23 +1,26 @@
-import NavBar from "../../islands/NavBar.tsx";
-import ProjectsGrid from "../../islands/ProjectsGrid.tsx";
+import { Head } from "$fresh/runtime.ts";
 import { PageProps } from "$fresh/server.ts";
+import ProjectsGrid from "../../islands/ProjectsGrid.tsx";
+import { projects } from "../../lib/projects.ts";
 
 export default function Projects(props: PageProps) {
-	// Get the q parameter from URL
-	const url = new URL(props.url);
-	const searchQuery = url.searchParams.get('q') || "";
+	const searchQuery = props.url.searchParams.get("q") || "";
+	const firstYear = Math.min(...projects.map((p) => new Date(p.date).getFullYear()));
 
 	return (
 		<>
-			<head>
+			<Head>
 				<title>Projects made by keewinek</title>
-			</head>
-			<div class="bg-background-black text-white font-Comfortaa overflow-x-hidden px-2 pb-[5rem]">
-				<NavBar />
-
-				<h1 class="text-center text-3xl md:text-6xl mb-[4rem] mt-[5rem] animation-fade-in-up">Projects</h1>
-				
-				<ProjectsGrid initialSearchQuery={searchQuery} />
+				<meta property="og:title" content="Projects made by keewinek" />
+			</Head>
+			<div class="mx-auto max-w-[1400px] px-4 pb-24 pt-28 md:px-8 md:pt-36">
+				<h1 class="rise font-display text-6xl font-extrabold tracking-[-0.045em] md:text-8xl">Projects</h1>
+				<p class="rise mt-6 max-w-[48ch] text-lg text-muted md:text-xl" style={{ "--d": "120ms" }}>
+					Everything I've built since {firstYear}: web apps, mobile apps, games and the odd experiment.
+				</p>
+				<div class="rise mt-14" style={{ "--d": "220ms" }}>
+					<ProjectsGrid initialSearchQuery={searchQuery} />
+				</div>
 			</div>
 		</>
 	);

@@ -2,122 +2,301 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom utilities */
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+/* ------------------------------------------------------------------ */
+/* Fonts (self-hosted, OFL; see static/fonts/LICENSE-*.txt)            */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+    font-family: "Bricolage Grotesque";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url("/fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Bricolage Grotesque";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url("/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/fonts/geist-latin-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/fonts/geist-latin-ext-wght-normal.woff2") format("woff2-variations");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Geist Mono";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/fonts/geist-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+    html {
+        @apply bg-ink text-fg font-sans antialiased;
+        color-scheme: dark;
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply bg-ink;
+        text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+        @apply bg-red text-ink;
+    }
+
+    :focus-visible {
+        @apply outline-none ring-2 ring-red/80 ring-offset-2 ring-offset-ink;
+    }
+
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+}
+
+/* Film grain: fixed, pointer-events-none, never on a scrolling layer. */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px theme("colors.fg / 55%");
+}
+
+/* Language icons are single-colour SVGs; masking lets them take currentColor. */
+.icon-mask {
+    display: inline-block;
+    background-color: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+
+/* Hero load-in: staggered rise, delay set per element with --d. */
+.rise {
+    opacity: 0;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0ms);
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Hero screenshots settle in with a small rotation. */
+.settle {
+    opacity: 0;
+    animation: settle 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0ms);
+}
+
+@keyframes settle {
+    from {
+        opacity: 0;
+        transform: translateY(60px) rotate(var(--r-from, 0deg)) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--r, 0deg)) scale(1);
+    }
+}
+
+/* Rotating word in the hero headline. 4 words + a copy of the first one. */
+.word-rotator {
+    display: inline-block;
+    height: 1.3em;
     overflow: hidden;
+    vertical-align: top;
 }
 
-/* Animation classes */
-.animation-fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
+.word-rotator > span {
+    display: flex;
+    flex-direction: column;
+    animation: word-cycle 11s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+    animation-delay: 1.4s;
 }
 
-.animation-fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 1s ease-in-out forwards;
+.word-rotator > span > span {
+    display: block;
+    height: 1.3em;
+    line-height: 1.3em;
+    white-space: nowrap;
 }
 
-.cartoon-3d-shadow {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 0 30px 0 rgba(0, 0, 0, 0.5);
+@keyframes word-cycle {
+    0%, 20% { transform: translateY(0); }
+    25%, 45% { transform: translateY(-20%); }
+    50%, 70% { transform: translateY(-40%); }
+    75%, 95% { transform: translateY(-60%); }
+    100% { transform: translateY(-80%); }
 }
 
-.animation-fade-in:nth-child(1) { animation-delay: 0.1s; }
-.animation-fade-in:nth-child(2) { animation-delay: 0.3s; }
-.animation-fade-in:nth-child(3) { animation-delay: 0.5s; }
-.animation-fade-in:nth-child(4) { animation-delay: 0.7s; }
-.animation-fade-in:nth-child(5) { animation-delay: 0.9s; }
-.animation-fade-in:nth-child(6) { animation-delay: 1.1s; }
-.animation-fade-in:nth-child(7) { animation-delay: 1.3s; }
-.animation-fade-in:nth-child(8) { animation-delay: 1.5s; }
-.animation-fade-in:nth-child(9) { animation-delay: 1.7s; }
-.animation-fade-in:nth-child(10) { animation-delay: 1.9s; }
-.animation-fade-in:nth-child(11) { animation-delay: 2.1s; }
-.animation-fade-in:nth-child(12) { animation-delay: 2.3s; }
-.animation-fade-in:nth-child(13) { animation-delay: 2.5s; }
-.animation-fade-in:nth-child(14) { animation-delay: 2.7s; }
-.animation-fade-in:nth-child(15) { animation-delay: 2.9s; }
-.animation-fade-in:nth-child(16) { animation-delay: 3.1s; }
-.animation-fade-in:nth-child(17) { animation-delay: 3.3s; }
-.animation-fade-in:nth-child(18) { animation-delay: 3.5s; }
-.animation-fade-in:nth-child(19) { animation-delay: 3.7s; }
-.animation-fade-in:nth-child(20) { animation-delay: 3.9s; }
+/* Project-name marquee (the only marquee on the page). */
+.marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+}
 
-.animation-fade-in-up:nth-child(1) { animation-delay: 0.1s; }
-.animation-fade-in-up:nth-child(2) { animation-delay: 0.2s; }
-.animation-fade-in-up:nth-child(3) { animation-delay: 0.3s; }
-.animation-fade-in-up:nth-child(4) { animation-delay: 0.4s; }
-.animation-fade-in-up:nth-child(5) { animation-delay: 0.5s; }
-.animation-fade-in-up:nth-child(6) { animation-delay: 0.6s; }
-.animation-fade-in-up:nth-child(7) { animation-delay: 0.7s; }
+.marquee-wrap:hover .marquee {
+    animation-play-state: paused;
+}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+@keyframes marquee {
     to {
-        opacity: 1;
-        transform: translateY(0);
+        transform: translateX(-50%);
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+/* Parallax drift for the hero collage, driven by page scroll where supported. */
+@supports (animation-timeline: scroll()) {
+    .drift {
+        animation: drift linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 100vh;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    @keyframes drift {
+        to {
+            transform: translateY(var(--drift, -80px));
+        }
     }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #000000; /* background-black */
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ff6c6c; /* brand red */
-    border-radius: 6px;
-    border: 2px solid #000000; /* background-black */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #ff5252; /* slightly darker red on hover */
-}
-
-/* Firefox scrollbar */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #ff6c6c #000000;
-}
-
-/* Scroll reveal (driven by /js/reveal-on-scroll.js) */
-.reveal-on-scroll {
+/* Scroll reveal (driven by /js/reveal-on-scroll.js); stagger with --i.
+   Only hidden when JS runs (html.js), so content never disappears without it. */
+.js .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(2rem);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transform: translateY(2.5rem);
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i, 0) * 70ms);
 }
 
-.reveal-on-scroll.is-visible {
+.js .reveal-on-scroll.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+}
+
+/* Code block lines type in one after another once the block is visible. */
+.js .code-line {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+        opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(200ms + var(--i, 0) * 55ms);
+}
+
+.js .is-visible .code-line {
+    opacity: 1;
+    transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal-on-scroll {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .rise,
+    .settle,
+    .js .reveal-on-scroll,
+    .js .code-line {
         opacity: 1;
         transform: none;
+        animation: none;
         transition: none;
     }
+
+    .settle {
+        transform: rotate(var(--r, 0deg));
+    }
+
+    .word-rotator > span,
+    .drift {
+        animation: none;
+    }
+
+    .marquee {
+        animation: none;
+    }
+
+    .marquee-wrap {
+        overflow-x: auto;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Scrollbar                                                           */
+/* ------------------------------------------------------------------ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c0c0e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a30;
+    border-radius: 999px;
+    border: 2px solid #0c0c0e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6c6c;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a30 #0c0c0e;
 }

@@ -1,116 +1,117 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
+import { CloseIcon, DiscordIcon, MenuIcon } from "../components/Icons.tsx";
 
-export default function NavBar() {
+const LINKS = [
+	{ label: "About Me", href: "/#about_me" },
+	{ label: "Skills", href: "/#skills" },
+	{ label: "Projects", href: "/projects" },
+	{ label: "Contact", href: "/#contact" },
+];
+
+export default function NavBar({ currentPath = "/" }: { currentPath?: string }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
-	};
+	// Lock page scroll and allow Escape while the mobile menu is open.
+	useEffect(() => {
+		if (!isMenuOpen) return;
+		const onKey = (e: KeyboardEvent) => {
+			if (e.key === "Escape") setIsMenuOpen(false);
+		};
+		document.body.style.overflow = "hidden";
+		document.addEventListener("keydown", onKey);
+		return () => {
+			document.body.style.overflow = "";
+			document.removeEventListener("keydown", onKey);
+		};
+	}, [isMenuOpen]);
 
-	const scrollToSection = (sectionId: string) => {
-		const element = document.getElementById(sectionId);
-		if (element) {
-			element.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
-	};
-
-	const handleNavClick = (sectionId: string) => {
-		setIsMenuOpen(false);
-		
-		// Check if we're on the same page (index page)
-		const currentPath = window.location.pathname;
-		if (currentPath === '/' || currentPath === '/index.html' || currentPath === '') {
-			// On the same page, scroll smoothly
-			scrollToSection(sectionId);
-		} else {
-			// On a different page, navigate to index with hash
-			window.location.href = `/#${sectionId}`;
-		}
-	};
+	const isActive = (href: string) => href === "/projects" && currentPath.startsWith("/projects");
 
 	return (
-		<>
-			{/* Desktop Navigation */}
-			<nav 
-				id="main_nav" 
-				class="fixed top-0 left-1/2 -translate-x-1/2 z-50 overflow-hidden w-full max-w-fit max-h-[3rem] flex-row items-center justify-center mt-3 py-2 px-8 bg-background-dark/70 border border-white/10 backdrop-blur-xl rounded-full shadow-lg shadow-black/40 hidden lg:flex"
-			>
-				<a href="/" class="no-underline text-lg m-0 mr-5 flex items-center justify-center cursor-pointer select-none text-white transition-all duration-200 animation-fade-in-up">
-					<img id="nav_home_icon" src="/logo.png" class="h-[30px] object-contain"/>
-				</a>
-
-				<button onClick={() => handleNavClick('about_me')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">About Me</button>
-				<button onClick={() => handleNavClick('skills')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">Skills</button>
-				<a href="/projects" class="duration-200 hover:text-red mx-2 text-lg animation-fade-in-up">Projects</a>
-				<button onClick={() => handleNavClick('contact')} class="duration-200 hover:text-red mx-2 text-lg bg-transparent border-none text-white cursor-pointer animation-fade-in-up">Contact</button>
-				<a href="/discord" target="_blank" id="nav_contact" class="duration-200 hover:text-red mx-2 text-lg max-xl:hidden animation-fade-in-up">Discord Server</a>
-			</nav>
-
-			{/* Mobile Navigation */}
-			<nav class="fixed top-0 left-0 right-0 z-50 lg:hidden bg-background-black/70 border-b border-white/10 backdrop-blur-xl">
-				<div class="flex items-center justify-center px-4 py-3">
-					{/* Logo and Title - Centered */}
-					<a href="/" class="flex items-center space-x-2 no-underline text-white">
-						<img src="/logo.png" class="h-8 w-8 object-contain animation-fade-in-up" alt="Keewinek Logo"/>
-						<span class="text-xl font-semibold animation-fade-in-up">Keewinek</span>
+		<header class="fixed inset-x-0 top-0 z-nav">
+			<div class="border-b border-line/60 bg-ink/75 backdrop-blur-xl">
+				<nav class="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-4 md:px-8" aria-label="Main">
+					<a href="/" class="group flex items-center gap-3 no-underline" aria-label="keewinek, home">
+						<img
+							src="/logo-128.png"
+							alt=""
+							width={32}
+							height={32}
+							class="h-8 w-8 object-contain transition-transform duration-500 ease-out-expo group-hover:-rotate-12"
+						/>
+						<span class="font-display text-xl font-bold tracking-tight text-fg">keewinek</span>
 					</a>
 
-					{/* Hamburger Menu Button - Positioned absolutely on the right */}
-					<button
-						onClick={toggleMenu}
-						class="absolute right-4 text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 animation-fade-in-up"
-						aria-label="Toggle menu"
-					>
-						<div class="w-6 h-6 flex flex-col justify-center items-center">
-							<span class={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-							<span class={`block w-5 h-0.5 bg-white transition-all duration-300 mt-1 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-							<span class={`block w-5 h-0.5 bg-white transition-all duration-300 mt-1 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-						</div>
-					</button>
-				</div>
-
-				{/* Mobile Menu */}
-				<div class={`overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-					<div class="px-4 pb-4 space-y-3">
-						<button 
-							onClick={() => handleNavClick('about_me')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
+					<div class="hidden items-center gap-1 lg:flex">
+						{LINKS.map((link) => (
+							<a
+								key={link.href}
+								href={link.href}
+								aria-current={isActive(link.href) ? "page" : undefined}
+								class={`rounded-full px-4 py-2 text-[15px] transition-colors duration-200 hover:text-fg ${
+									isActive(link.href) ? "text-fg" : "text-muted"
+								}`}
+							>
+								{link.label}
+							</a>
+						))}
+						<a
+							href="/discord"
+							target="_blank"
+							class="ml-3 inline-flex h-9 items-center gap-2 rounded-full border border-line px-4 text-sm text-muted transition-colors duration-200 hover:border-fg/40 hover:text-fg"
 						>
-							About Me
-						</button>
-						<button 
-							onClick={() => handleNavClick('skills')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
-						>
-							Skills
-						</button>
-						<a 
-							href="/projects" 
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg animation-fade-in-up"
-							onClick={() => setIsMenuOpen(false)}
-						>
-							Projects
-						</a>
-						<button 
-							onClick={() => handleNavClick('contact')}
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg bg-transparent border-none text-left w-full cursor-pointer animation-fade-in-up"
-						>
-							Contact
-						</button>
-						<a 
-							href="/discord" 
-							target="_blank" 
-							class="block text-white hover:text-red transition-colors duration-200 py-2 text-lg animation-fade-in-up"
-							onClick={() => setIsMenuOpen(false)}
-						>
+							<DiscordIcon class="h-4 w-4" />
 							Discord Server
 						</a>
 					</div>
+
+					<button
+						type="button"
+						onClick={() => setIsMenuOpen(!isMenuOpen)}
+						class="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-fg transition-colors hover:bg-surface lg:hidden"
+						aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+						aria-expanded={isMenuOpen}
+						aria-controls="mobile-menu"
+					>
+						{isMenuOpen ? <CloseIcon class="h-6 w-6" /> : <MenuIcon class="h-6 w-6" />}
+					</button>
+				</nav>
+			</div>
+
+			{/* Mobile menu: full-screen sheet under the bar. */}
+			<div
+				id="mobile-menu"
+				class={`fixed inset-x-0 bottom-0 top-16 z-menu bg-ink transition-opacity duration-300 lg:hidden ${
+					isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+				}`}
+				hidden={!isMenuOpen}
+			>
+				<div class="flex h-full flex-col justify-between px-6 pb-10 pt-8">
+					<ul class="space-y-1">
+						{[...LINKS, { label: "Discord Server", href: "/discord" }].map((link, i) => (
+							<li
+								key={link.href}
+								class={`transition-all duration-500 ease-out-expo ${
+									isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+								}`}
+								style={{ transitionDelay: `${isMenuOpen ? 60 + i * 50 : 0}ms` }}
+							>
+								<a
+									href={link.href}
+									target={link.href === "/discord" ? "_blank" : undefined}
+									onClick={() => setIsMenuOpen(false)}
+									class="block py-2 font-display text-4xl font-bold tracking-tight text-fg transition-colors hover:text-red"
+								>
+									{link.label}
+								</a>
+							</li>
+						))}
+					</ul>
+					<a href="mailto:keewinek@gmail.com" class="text-muted transition-colors hover:text-fg">
+						keewinek@gmail.com
+					</a>
 				</div>
-			</nav>
-		</>
+			</div>
+		</header>
 	);
 }

@@ -1,27 +1,26 @@
-import NavBar from "../islands/NavBar.tsx";
+import { Head } from "$fresh/runtime.ts";
 import Redirect from "../islands/Redirect.tsx";
-import { ArrowRightIcon } from "../components/Icons.tsx";
+import { DiscordIcon } from "../components/Icons.tsx";
 import Button from "../components/Button.tsx";
 
-export default function Discord() {
-	const DISCORD_INVITE_URL = "https://discord.gg/VCsGp8xCtf";
+const DISCORD_INVITE_URL = "https://discord.gg/VCsGp8xCtf";
 
+export default function Discord() {
 	return (
 		<>
-			<head>
+			<Head>
 				<title>Keewinek's Discord Server</title>
-			</head>
-			<div class="bg-background-black text-white font-Comfortaa overflow-x-hidden px-2 pb-[1rem]">
-				<NavBar />
-
-				<h1 class="text-center text-3xl md:text-6xl mb-[4rem] mt-[5rem]">My Discord Server</h1>
-
-				<div class="max-w-md w-full mx-auto flex justify-center">
-					<Button href={DISCORD_INVITE_URL} target="_blank" size="lg" icon={<ArrowRightIcon class="h-4 w-4" />}>
-						Join my Discord Server
+			</Head>
+			<div class="mx-auto flex min-h-[100dvh] max-w-[1400px] flex-col items-start justify-center px-4 pt-16 md:px-8">
+				<h1 class="rise font-display text-6xl font-extrabold tracking-[-0.045em] md:text-8xl">My Discord Server</h1>
+				<p class="rise mt-6 max-w-[44ch] text-lg text-muted" style={{ "--d": "120ms" }}>
+					Taking you there now. If nothing happens, use the button.
+				</p>
+				<div class="rise mt-10" style={{ "--d": "220ms" }}>
+					<Button href={DISCORD_INVITE_URL} target="_blank" size="lg" icon={<DiscordIcon class="h-5 w-5" />}>
+						Join the server
 					</Button>
 				</div>
-
 				<Redirect url={DISCORD_INVITE_URL} />
 			</div>
 		</>

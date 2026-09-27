@@ -1,6 +1,6 @@
 (function () {
   function init() {
-    var elements = document.querySelectorAll(".reveal-on-scroll");
+    const elements = document.querySelectorAll(".reveal-on-scroll");
     if (!elements.length) return;
 
     if (!("IntersectionObserver" in window)) {
@@ -10,7 +10,7 @@
       return;
     }
 
-    var observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {

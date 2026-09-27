@@ -440,16 +440,22 @@
     },
     {
         "title": "Newear",
-        "desc": "Newear is my own project running at newear.pl. It is a web platform I design, build and maintain end to end — from the interface to the backend. Visit newear.pl to see the live version.",
-        "images": [],
+        "desc": "Newear is a Polish clothing brand and online store I built end to end at newear.pl. It is a youth mini-enterprise run by Gen Z for Gen Z — hand-sewn hoodies and sweatpants finished with lace, made in short series as an answer to fast fashion. I designed and developed the whole shop on Deno Fresh: the product catalogue with galleries, the cart and checkout, InPost parcel locker delivery, the about and contact pages, plus analytics, SEO and the store policies. I also maintain the site and its backend.",
+        "images": [
+            "/src/thumbnails/newear/1.jpg",
+            "/src/thumbnails/newear/2.jpg",
+            "/src/thumbnails/newear/3.jpg"
+        ],
         "site_url": "https://newear.pl",
         "date": "2026-09-23T00:00:00.000Z",
         "state": "working_on",
         "languages_used": [
             "ts",
+            "deno",
             "js",
             "html",
             "css"
-        ]
+        ],
+        "proud": 6
     }
 ]

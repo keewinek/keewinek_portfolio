@@ -1,6 +1,7 @@
 import { html } from "../lib/html.mjs";
 import { button } from "./button.mjs";
-import { ArrowRightIcon, DiscordIcon, MailIcon, SpinnerIcon } from "./icons.mjs";
+import { ArrowRightIcon, MailIcon, SpinnerIcon } from "./icons.mjs";
+import { SOCIALS } from "../lib/socials.mjs";
 
 const FIELD =
 	"w-full rounded-field border border-line bg-ink px-4 py-3 text-fg placeholder:text-subtle transition-colors duration-200 " +
@@ -85,12 +86,14 @@ export function contactSection({ title = "Have a project in mind?", place = "con
 								<span class="${linkClass}">keewinek@gmail.com</span>
 							</a>
 						</li>
-						<li>
-							<a href="/discord" target="_blank" class="group inline-flex items-center gap-3 text-lg text-fg">
-								${DiscordIcon("h-5 w-5 text-red")}
-								<span class="${linkClass}">Discord Server</span>
-							</a>
-						</li>
+						${SOCIALS.map((s) => html`
+							<li>
+								<a href="${s.href}" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-3 text-lg text-fg">
+									${s.icon("h-5 w-5 text-red")}
+									<span class="${linkClass}">${s.label}</span>
+								</a>
+							</li>
+						`)}
 					</ul>
 				</div>
 

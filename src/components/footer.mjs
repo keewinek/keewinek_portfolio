@@ -1,5 +1,6 @@
 import { html } from "../lib/html.mjs";
-import { DiscordIcon, MailIcon } from "./icons.mjs";
+import { MailIcon } from "./icons.mjs";
+import { SOCIALS } from "../lib/socials.mjs";
 
 export function siteFooter() {
 	return html`
@@ -15,10 +16,12 @@ export function siteFooter() {
 						${MailIcon("h-4 w-4")}
 						keewinek@gmail.com
 					</a>
-					<a href="/discord" target="_blank" class="inline-flex items-center gap-2 transition-colors hover:text-fg">
-						${DiscordIcon("h-4 w-4")}
-						Discord Server
-					</a>
+					${SOCIALS.map((s) => html`
+						<a href="${s.href}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-fg">
+							${s.icon("h-4 w-4")}
+							${s.label}
+						</a>
+					`)}
 					<span class="text-subtle">&copy; <span data-year>${new Date().getFullYear()}</span> keewinek</span>
 				</div>
 			</div>

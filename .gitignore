@@ -5,3 +5,6 @@
 # Build output and dependencies
 dist/
 node_modules/
+
+# Netlify CLI local state
+.netlify/

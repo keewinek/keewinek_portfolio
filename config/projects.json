@@ -416,8 +416,7 @@
             "js",
             "html",
             "css"
-        ],
-        "proud": 5
+        ]
     },
     {
         "title": "Studdly",
@@ -482,5 +481,26 @@
             "html",
             "css"
         ]
+    },
+    {
+        "title": "DomeykoFuture",
+        "desc": "DomeykoFuture is the website of the student council at CXXII LO im. Ignacego Domeyki in Warsaw. It brings together news, official documents, a class ranking with points for events and contests, and a form where students can submit their own ideas. It also works as an installable web app.",
+        "tagline": "Website and class ranking for a school student council.",
+        "images": [
+            "/src/thumbnails/domeykofuture/1.jpg",
+            "/src/thumbnails/domeykofuture/2.jpg",
+            "/src/thumbnails/domeykofuture/3.jpg",
+            "/src/thumbnails/domeykofuture/4.jpg"
+        ],
+        "site_url": "https://domeykofuture.pl",
+        "date": "2026-10-17T00:00:00.000Z",
+        "state": "finished",
+        "languages_used": [
+            "ts",
+            "js",
+            "html",
+            "css"
+        ],
+        "proud": 5
     }
 ]
